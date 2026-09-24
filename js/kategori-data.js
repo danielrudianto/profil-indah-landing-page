@@ -5,7 +5,7 @@ window.PI_CATEGORIES = [
   {
     "slug": "panel",
     "name": "Panel & Lembaran",
-    "photo": "assets/photo-walnut-panel.png",
+    "photo": "assets/photo-walnut-panel.webp",
     "alt": "Panel walnut pada dinding",
     "blurb": "Bahan utama badan furniture dan finishing permukaan. Stok HPL Taco tersedia dalam pilihan warna lengkap — polos, motif kayu, dan metalik.",
     "rows": [
@@ -38,7 +38,7 @@ window.PI_CATEGORIES = [
   {
     "slug": "engsel",
     "name": "Engsel & Rel",
-    "photo": "assets/photo-hinge.png",
+    "photo": "assets/photo-hinge.webp",
     "alt": "Engsel tanam pada pintu kayu",
     "blurb": "Sistem gerak pintu kabinet dan laci, dari engsel standar sampai soft close. Merek Blum, Häfele, Hüben, dan Harfit tersedia.",
     "rows": [
@@ -75,7 +75,7 @@ window.PI_CATEGORIES = [
   {
     "slug": "handle",
     "name": "Handle & Kunci",
-    "photo": "assets/photo-slat-wall.png",
+    "photo": "assets/photo-slat-wall.webp",
     "alt": "Kabinet dan dinding lamela",
     "blurb": "Pegangan, pengaman, dan kelengkapan pintu untuk hunian maupun proyek komersial. Dekson dan Häfele tersedia.",
     "rows": [
@@ -104,7 +104,7 @@ window.PI_CATEGORIES = [
   {
     "slug": "roda",
     "name": "Roda, Kaki & Rangka",
-    "photo": "assets/photo-kitchen-island.png",
+    "photo": "assets/photo-kitchen-island.webp",
     "alt": "Kitchen island dengan rangka kayu",
     "blurb": "Penopang dan struktur untuk kursi, sofa, meja, dan rak.",
     "rows": [
@@ -133,7 +133,7 @@ window.PI_CATEGORIES = [
   {
     "slug": "listrik",
     "name": "Listrik & Lampu",
-    "photo": "assets/photo-desk-cabinet.png",
+    "photo": "assets/photo-desk-cabinet.webp",
     "alt": "Kabinet meja kerja dengan lampu",
     "blurb": "Kelengkapan penerangan untuk kitchen set, lemari, dan display.",
     "rows": [
@@ -158,7 +158,7 @@ window.PI_CATEGORIES = [
   {
     "slug": "pelengkap",
     "name": "Pelengkap Workshop",
-    "photo": "assets/photo-wood-floor.png",
+    "photo": "assets/photo-wood-floor.webp",
     "alt": "Lantai kayu di ruang keluarga",
     "blurb": "Barang kecil yang selalu dibutuhkan di tengah pekerjaan — tersedia satuan maupun grosir.",
     "rows": [
