@@ -39,15 +39,19 @@
   var COLLAPSED_BASE = SHARED + ' flex-grow: 0; align-items: flex-end; justify-content: center; padding: 24px 0;';
   var VERT = 'position: relative; writing-mode: vertical-rl; transform: rotate(180deg); font-family: var(--font-heading); font-weight: var(--font-heading-weight); font-size: 14px; letter-spacing: 0.1em; text-transform: uppercase; white-space: nowrap;';
 
-  function brandStyles(photo, logo, open) {
+  function brandStyles(photo, logo, open, openWidth) {
     var onPhoto = open && !!photo;
-    var collapsed = COLLAPSED_BASE + (photo
-      ? ' background-image: url(' + photo + '); background-size: cover; background-position: center; color: var(--color-bg);'
-      : ' background: var(--color-bg); color: var(--color-text);');
+    // Foto tidak lagi menjadi background kartu. Dengan background-size: cover, browser
+    // menskalakan ulang foto di setiap frame selama kartu melebar: itu yang terlihat
+    // seperti zoom dan membuat animasi patah-patah. Foto dipindah ke .pi-brand-img (lihat imgStyle).
+    // Mode tumpuk (openWidth null, layar sempit): kartu tidak dianimasikan melebar, jadi
+    // dipakai cara desain apa adanya (foto sebagai background kartu) supaya tampilannya identik.
+    var photoOnCard = ' background-image: url(' + photo + '); background-size: cover; background-position: center; color: var(--color-bg);';
+    var photoOnLayer = ' background: var(--color-neutral-800); color: var(--color-bg);';
+    var photoBg = openWidth ? photoOnLayer : photoOnCard;
+    var collapsed = COLLAPSED_BASE + (photo ? photoBg : ' background: var(--color-bg); color: var(--color-text);');
     var expanded = SHARED + ' flex-grow: 1; cursor: default; align-items: flex-end; justify-content: flex-start; padding: clamp(20px, 2.6vw, 36px); border-color: var(--color-neutral-500);'
-      + (photo
-        ? ' background-image: url(' + photo + '); background-size: cover; background-position: center; color: var(--color-bg);'
-        : ' background: var(--color-neutral-100); color: var(--color-text);');
+      + (photo ? photoBg : ' background: var(--color-neutral-100); color: var(--color-text);');
     // Teks panel muncul bergiliran; d = jeda dalam detik.
     var reveal = function (d) {
       return open
@@ -56,10 +60,23 @@
     };
     var ink = onPhoto ? 'var(--color-bg)' : 'var(--color-text)';
     var muted = onPhoto ? 'var(--color-bg)' : 'color-mix(in srgb, var(--color-text) 76%, transparent)';
+    // Efek "push": lebar foto dikunci selebar kartu saat terbuka penuh dan diletakkan di
+    // tengah kartu. Kartu yang melebar hanya membuka lebih banyak bagian foto dan mendorong
+    // kartu lain, tanpa mengubah skala foto. will-change menaruh foto di layer sendiri
+    // sehingga tidak digambar ulang tiap frame. Di mode tumpuk layer ini tidak dipakai.
+    var img = (!photo || !openWidth) ? 'display: none;'
+      : 'position: absolute; top: 0; bottom: 0; left: 50%; width: ' + openWidth + 'px; transform: translate3d(-50%, 0, 0); will-change: transform;'
+        + ' background-image: url(' + photo + '); background-size: cover; background-position: center; background-repeat: no-repeat; pointer-events: none;';
     return {
+      img: img,
       card: open ? expanded : collapsed,
+      // Scrim ikut dikunci selebar foto (bukan inset: 0) supaya gradiennya tidak
+      // digambar ulang tiap frame saat kartu melebar.
       scrim: photo
-        ? 'position: absolute; inset: 0; transition: background 0.55s cubic-bezier(0.22, 0.72, 0.18, 1); background: ' + (open
+        ? (openWidth
+            ? 'position: absolute; top: 0; bottom: 0; left: 50%; width: ' + openWidth + 'px; transform: translate3d(-50%, 0, 0); will-change: transform;'
+            : 'position: absolute; inset: 0;')
+          + ' transition: background 0.55s cubic-bezier(0.22, 0.72, 0.18, 1); background: ' + (open
             ? 'linear-gradient(100deg, color-mix(in srgb, #201e1d 90%, transparent) 0%, color-mix(in srgb, #201e1d 66%, transparent) 52%, color-mix(in srgb, #201e1d 22%, transparent) 100%)'
             : 'linear-gradient(100deg, color-mix(in srgb, #201e1d 72%, transparent) 0%, color-mix(in srgb, #201e1d 60%, transparent) 100%)') + ';'
         : 'display: none;',
@@ -79,12 +96,30 @@
     };
   }
 
+  // Lebar kartu terbuka = lebar baris dikurangi kartu tertutup (78px) dan celah (2px),
+  // angka yang sama dengan flex-basis dan gap di markup desain. Di bawah 820px kartu
+  // ditumpuk vertikal oleh CSS desain, jadi tidak ada lebar tetap.
+  var STACK_MQ = window.matchMedia('(max-width: 820px)');
+  function openWidthFor(buttons) {
+    if (STACK_MQ.matches || !buttons.length) return null;
+    var row = buttons[0].parentNode;
+    var n = buttons.length;
+    // Dikurangi 4px lagi: bingkai 2px kiri-kanan. Foto dan scrim berada di dalam bingkai,
+    // dan di desain skala foto dihitung dari bagian dalam itu; tanpa -4 foto 0,5% kebesaran.
+    // Pakai lebar pecahan dari getBoundingClientRect, bukan clientWidth yang dibulatkan:
+    // selisih 0,1px saja menggeser foto sub-piksel sehingga seluruh foto ikut buram tipis.
+    var w = row.getBoundingClientRect().width - (n - 1) * 78 - (n - 1) * 2 - 4;
+    return Math.max(0, Math.round(w * 100) / 100);
+  }
+
   function selectBrand(buttons, index) {
+    var w = openWidthFor(buttons);
     buttons.forEach(function (btn, n) {
       var open = n === index;
-      var s = brandStyles(btn.getAttribute('data-photo'), btn.getAttribute('data-logo'), open);
+      var s = brandStyles(btn.getAttribute('data-photo'), btn.getAttribute('data-logo'), open, w);
       btn.setAttribute('aria-expanded', open ? 'true' : 'false');
       btn.style.cssText = s.card;
+      btn.querySelector('.pi-brand-img').style.cssText = s.img;
       btn.querySelector('.pi-brand-scrim').style.cssText = s.scrim;
       btn.querySelector('.pi-vert').style.cssText = s.vert;
       btn.querySelector('.pi-brand-panel').style.cssText = s.panel;
@@ -98,9 +133,18 @@
 
   function init() {
     var buttons = Array.prototype.slice.call(document.querySelectorAll('.pi-brandrow > .pi-brand'));
-    selectBrand(buttons, 0);
+    var current = 0;
+    selectBrand(buttons, current);
     buttons.forEach(function (btn, n) {
-      btn.addEventListener('click', function () { selectBrand(buttons, n); });
+      btn.addEventListener('click', function () { current = n; selectBrand(buttons, n); });
+    });
+    // Lebar foto mengikuti lebar baris; hitung ulang saat jendela berubah ukuran.
+    var rt = null;
+    // Juga saat melewati batas 820px, karena cara pasang foto berganti antara dua mode.
+    if (STACK_MQ.addEventListener) STACK_MQ.addEventListener('change', function () { selectBrand(buttons, current); });
+    window.addEventListener('resize', function () {
+      clearTimeout(rt);
+      rt = setTimeout(function () { selectBrand(buttons, current); }, 100);
     });
 
     // Datang dari halaman lain dengan #kontak dsb.: scroll halus setelah gambar sempat memuat.
