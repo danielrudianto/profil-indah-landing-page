@@ -1,452 +1,488 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="id">
-  <head>
-    <!-- ======================= -->
-    <!--        BASIC SEO        -->
-    <!-- ======================= -->
-    <title>Profil Indah — Toko Hardware & Material Interior Denpasar</title>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Toko Profil Indah — Material Interior, Denpasar</title>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css">
+<link rel="stylesheet" href="css/modernist.css">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600&amp;display=swap">
+<style>
+  :root { --color-accent: #e22422; --color-accent-500: #e22422; }
+  body { margin: 0; text-wrap: pretty; }
+  a { color: var(--color-accent-700); }
+  a:hover { color: var(--color-accent); }
+  :root { --bs-body-font-family: var(--font-body); --bs-border-radius: 0; --bs-body-color: var(--color-text); --bs-body-bg: var(--color-bg); }
+  body { font-family: var(--font-body); color: var(--color-text); background: var(--color-bg); }
+  :root { --font-heading: 'IBM Plex Sans', system-ui, sans-serif; }
+  h1, h2, h3, h4, h5, h6 { font-family: var(--font-heading); font-weight: var(--font-heading-weight); }
+  .btn, .card, .tag, .input, .form-control { border-radius: 0 !important; }
+  .row { --bs-gutter-x: 0; margin-left: 0; margin-right: 0; }
+  .container-fluid { padding-right: max(clamp(20px, 3vw, 56px), calc((100% - 1440px) / 2)); padding-left: max(clamp(20px, 3vw, 56px), calc((100% - 1440px) / 2)); }
+  @keyframes piRise { from { opacity: 0; transform: translateY(18px); } to { opacity: 1; transform: none; } }
+  @keyframes piMarquee { from { transform: translateX(0); } to { transform: translateX(-50%); } }
+  .pi-aos { opacity: 0; }
+  .pi-aos.is-in { animation: piRise 0.9s cubic-bezier(0.2, 0.7, 0.2, 1) both; }
+  @media (prefers-reduced-motion: reduce) { .pi-aos { opacity: 1; } .pi-aos.is-in { animation: none; } }
+  .pi-rise { animation: piRise 0.7s cubic-bezier(0.2, 0.7, 0.2, 1) both; }
+  .pi-marquee { display: flex; width: max-content; animation: piMarquee 26s linear infinite; }
+  .pi-marquee:hover { animation-play-state: paused; }
+  .pi-zoom img { transition: transform 0.6s cubic-bezier(0.2, 0.7, 0.2, 1); }
+  .pi-num, .pi-rail, .pi-arrow { transition: background 0.25s, color 0.25s, border-color 0.25s, transform 0.3s, opacity 0.3s; }
+  .pi-step { position: relative; cursor: pointer; }
+  .pi-step::before { content: ''; position: absolute; top: -2px; left: -1px; right: 0; height: 2px; background: var(--color-accent); transform: scaleX(0); transform-origin: left; transition: transform 0.5s cubic-bezier(0.2, 0.7, 0.2, 1); }
+  .pi-step:hover::before { transform: scaleX(1); }
+  .pi-step .pi-num { transition: color 0.3s, transform 0.4s cubic-bezier(0.2, 0.7, 0.2, 1); }
+  .pi-step:hover .pi-num { color: var(--color-accent); }
+  .pi-step h3, .pi-step p { transition: color 0.3s; }
+  .pi-step:hover p { color: var(--color-neutral-300) !important; }
+  .nav a.pi-navlink:hover { color: var(--color-bg) !important; }
+  .pi-htile img { transition: transform 0.8s cubic-bezier(0.2, 0.7, 0.2, 1); }
+  .pi-htile:hover img { transform: scale(1.05); }
+  .pi-htile:hover .pi-cta-arrow { transform: translateX(6px); }
+  @media (max-width: 700px) { .pi-htiles { grid-template-columns: 1fr 1fr !important; } .pi-htiles > a:last-child { display: none !important; } }
+  .pi-spy { text-decoration: underline !important; text-decoration-color: transparent !important; text-underline-offset: 7px; text-decoration-thickness: 2px; transition: color 0.25s, text-decoration-color 0.25s; }
+  .pi-spy.is-active { color: var(--color-bg) !important; font-weight: 600; text-decoration-color: var(--color-accent) !important; }
+  @media (max-width: 860px) { .pi-strip { grid-template-columns: repeat(2, minmax(0, 1fr)) !important; } .pi-strip > div { border-left: none !important; padding-left: 0 !important; } }
+  .pi-lux, .pi-ink { transition: background 0.3s, color 0.3s, border-color 0.3s, box-shadow 0.3s, transform 0.3s; }
+  .pi-lux:hover, .pi-ink:hover { background: var(--color-accent); border-color: var(--color-accent); color: var(--color-bg); box-shadow: var(--shadow-lg); transform: translateY(-2px); }
+  .pi-lux:active, .pi-ink:active { box-shadow: var(--shadow-sm); transform: translateY(0); }
+  .pi-lux:hover .pi-cta-arrow, .pi-ink:hover .pi-cta-arrow { transform: translateX(8px); }
+  .pi-cta { transition: background 0.3s, border-color 0.3s, box-shadow 0.3s, transform 0.3s; }
+  .pi-cta:hover { background: var(--color-text); border-color: var(--color-text); box-shadow: var(--shadow-lg); transform: translateY(-2px); }
+  .pi-cta:active { box-shadow: var(--shadow-sm); transform: translateY(0); }
+  .pi-cta-arrow { transition: transform 0.35s cubic-bezier(0.2, 0.7, 0.2, 1); }
+  .pi-cta:hover .pi-cta-arrow, .pi-cta2:hover .pi-cta-arrow { transform: translateX(8px); }
+  .pi-ctaw { transition: background 0.3s, color 0.3s, transform 0.3s; }
+  .pi-ctaw:hover { background: var(--color-bg); color: var(--color-text); transform: translateY(-2px); }
+  .pi-ctaw:hover .pi-cta-arrow { transform: translateX(8px); }
+  .pi-cta2 { transition: background 0.3s, color 0.3s, box-shadow 0.3s, transform 0.3s; }
+  .pi-cta2:hover { background: var(--color-text); color: var(--color-bg); box-shadow: var(--shadow-md); transform: translateY(-2px); }
+  .pi-cta2:active { box-shadow: none; transform: translateY(0); }
+  @media (max-width: 900px) { .pi-catgrid { grid-template-columns: repeat(2, minmax(0, 1fr)) !important; } }
+  @media (max-width: 560px) { .pi-catgrid { grid-template-columns: 1fr !important; } }
+  .pi-maps { transition: opacity 0.25s; }
+  .pi-maps:hover { opacity: 0.75; }
+  @media (max-width: 900px) { .pi-foot { grid-template-columns: repeat(2, minmax(0, 1fr)) !important; } }
+  @media (max-width: 520px) { .pi-foot { grid-template-columns: 1fr !important; } }
+  .pi-navbtn { transition: background 0.25s, color 0.25s, border-color 0.25s; }
+  .pi-navbtn:hover { background: var(--color-bg); color: var(--color-text); border-color: var(--color-bg); }
+  .pi-thumb { transition: opacity 0.3s, border-color 0.3s; }
+  .pi-thumb:hover { opacity: 1 !important; }
+  @media (max-width: 860px) { .pi-carousel { grid-template-columns: 1fr !important; } .pi-thumbs { flex-direction: row !important; overflow-x: auto; } .pi-thumbs > button { flex: 0 0 180px; } }
+  .pi-arrow { opacity: 0; transform: translateX(-6px); }
+  .pi-cell:hover .pi-arrow, .pi-shot:hover .pi-arrow { opacity: 1; transform: none; }
+  .pi-cell:hover h3, .pi-step:hover h3 { color: var(--color-bg); }
+  .pi-zoom:hover img { transform: scale(1.06); }
+  @media (max-width: 820px) { .pi-herogrid { grid-template-columns: 1fr !important; } }
+  @media (max-width: 820px) {
+    .pi-brandrow { flex-direction: column !important; min-height: 0 !important; }
+    .pi-brandrow > button { flex: 0 0 auto !important; align-items: flex-start !important; justify-content: flex-start !important; padding: 20px !important; }
+    .pi-brandrow .pi-vert { writing-mode: horizontal-tb !important; transform: none !important; }
+  }
+  .pi-gallery { display: grid; grid-template-columns: repeat(4, 1fr); gap: 2px; }
+  @media (max-width: 900px) { .pi-gallery { grid-template-columns: repeat(2, 1fr); } }
+  @media (max-width: 520px) { .pi-gallery { grid-template-columns: 1fr; } }
+  @media (max-width: 700px) { .pi-tabgrid { grid-template-columns: 1fr !important; } .pi-2col { grid-template-columns: 1fr !important; } }
+  @media (max-width: 640px) { .nav a.pi-navlink { display: none; } }
+  @media (max-width: 620px) { .pi-stats { grid-template-columns: 1fr !important; } }
+  @media (max-width: 900px) { .pi-shots { grid-template-columns: repeat(4, minmax(0, 1fr)) !important; } .pi-shots > figure { grid-column: span 2 !important; } }
+  @media (max-width: 560px) { .pi-shots { grid-template-columns: 1fr !important; } .pi-shots > figure { grid-column: auto !important; } }
+  .pi-steps > div:first-child { border-left: none !important; padding-left: 0 !important; }
+  @media (max-width: 980px) {
+    .pi-steps { grid-template-columns: repeat(2, minmax(0, 1fr)) !important; }
+    .pi-steps > div:nth-child(2n+1) { border-left: none !important; padding-left: 0 !important; }
+    .pi-steps > div:nth-child(n+3) { border-top: 1px solid color-mix(in srgb, var(--color-bg) 16%, transparent) !important; margin-top: 28px; }
+  }
+  @media (max-width: 560px) {
+    .pi-steps { grid-template-columns: 1fr !important; }
+    .pi-steps > div { border-left: none !important; padding-left: 0 !important; }
+    .pi-steps > div:nth-child(n+2) { border-top: 1px solid color-mix(in srgb, var(--color-bg) 16%, transparent) !important; margin-top: 28px; }
+  }
+  @media (prefers-reduced-motion: reduce) { .pi-rise, .pi-marquee { animation: none; } }
+  .pi-cell:hover { background: color-mix(in srgb, var(--color-bg) 6%, transparent) !important; }
+</style>
+<link rel="stylesheet" href="css/site.css">
+<script src="js/site.js" defer></script>
+<script src="js/home.js" defer></script>
+</head>
+<body>
+<div style="background: color-mix(in oklch, var(--color-neutral-900) 72%, black); color: var(--color-bg);">
 
-    <meta
-      name="description"
-      content="Profil Indah menyediakan material interior, hardware, laminates, HPL, flooring, dan aksesoris furniture. Solusi lengkap & terpercaya sejak 2000 di Denpasar."
-    />
-    <meta
-      name="keywords"
-      content="hardware denpasar, material interior bali, hpl denpasar, toko furniture bali, profil indah, laminates bali, perlengkapan kitchen set bali"
-    />
-    <meta name="author" content="Profil Indah" />
+  <nav class="nav" style="position: sticky; top: 0; z-index: 20; background: color-mix(in oklch, var(--color-neutral-900) 72%, black); border-bottom: 1px solid color-mix(in srgb, var(--color-bg) 14%, transparent); padding-inline: max(clamp(20px, 3vw, 56px), calc((100% - 1440px) / 2));">
+    <a class="nav-brand" href="index.html" style="display: flex; align-items: center; margin-right: auto;"><img src="assets/logo-wordmark-light.png" alt="Profil Indah" style="display: block; height: 26px; width: auto;"></a>
+    <a class="pi-navlink" href="index.html" style="text-decoration: none; white-space: nowrap; color: var(--color-bg); font-weight: 600;">Beranda</a>
+    <a class="pi-navlink" href="produk.html" style="text-decoration: none; white-space: nowrap; color: var(--color-neutral-300);">Produk</a>
+    <a href="https://wa.me/628213106432" target="_blank" rel="noopener" style="text-decoration: none; white-space: nowrap; color: var(--color-bg);">WhatsApp &nbsp;+62 821-3106-432</a>
+  </nav>
 
-    <!-- Canonical -->
-    <link rel="canonical" href="https://profilindah.id/" />
-
-    <!-- ======================= -->
-    <!--     OPEN GRAPH (OG)     -->
-    <!-- ======================= -->
-    <meta
-      property="og:title"
-      content="Profil Indah — Solusi Material Interior Lengkap & Terpercaya"
-    />
-    <meta
-      property="og:description"
-      content="Toko hardware dan material interior di Denpasar. Menyediakan HPL, flooring, aksesoris furniture, dan material berkualitas."
-    />
-    <meta
-      property="og:image"
-      content="https://profilindah.id/assets/images/og-image.jpg"
-    />
-    <meta property="og:url" content="https://profilindah.id" />
-    <meta property="og:type" content="website" />
-    <meta property="og:locale" content="id_ID" />
-
-    <!-- ======================= -->
-    <!--      TWITTER CARD       -->
-    <!-- ======================= -->
-    <meta name="twitter:card" content="summary_large_image" />
-    <meta
-      name="twitter:title"
-      content="Profil Indah — Material Interior Denpasar"
-    />
-    <meta
-      name="twitter:description"
-      content="Toko hardware & material interior dengan produk lengkap & terpercaya sejak 2000."
-    />
-    <meta
-      name="twitter:image"
-      content="https://profilindah.id/assets/images/og-image.jpg"
-    />
-
-    <!-- ======================= -->
-    <!--    PERFORMANCE BOOST    -->
-    <!-- ======================= -->
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link rel="preload" href="assets/images/image-1.png" as="image" />
-
-    <!-- ======================= -->
-    <!--   STRUCTURED DATA (LD+JSON) -->
-    <!-- ======================= -->
-    <script type="application/ld+json">
-      {
-        "@context": "https://schema.org",
-        "@type": "HardwareStore",
-        "name": "Profil Indah",
-        "image": "https://profilindah.id/assets/images/og-image.jpg",
-        "address": {
-          "@type": "PostalAddress",
-          "streetAddress": "Jalan Buluh Indah no. 54C, Pemecutan Kaja",
-          "addressLocality": "Denpasar Utara",
-          "addressRegion": "Bali",
-          "addressCountry": "ID"
-        },
-        "geo": {
-          "@type": "GeoCoordinates",
-          "latitude": -8.6378,
-          "longitude": 115.204
-        },
-        "url": "https://profilindah.id",
-        "telephone": "+62361417109",
-        "openingHours": "Mo-Sa 08:00-17:00"
-      }
-    </script>
-    <!-- Bootstrap 5 CSS -->
-    <link
-      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
-      rel="stylesheet"
-      integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH"
-      crossorigin="anonymous"
-    />
-
-    <script
-      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
-      integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
-      crossorigin="anonymous"
-    ></script>
-
-    <!-- Custom CSS -->
-    <link rel="stylesheet" href="library/css/style.css" />
-
-    <link
-      rel="stylesheet"
-      href="https://cdn.jsdelivr.net/npm/swiper@12/swiper-bundle.min.css"
-    />
-
-    <script src="https://cdn.jsdelivr.net/npm/swiper@12/swiper-bundle.min.js"></script>
-
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap"
-      rel="stylesheet"
-    />
-
-    <script>
-      document.addEventListener("DOMContentLoaded", () => {
-        new Swiper(".hero-swiper", {
-          loop: true,
-          speed: 600,
-          spaceBetween: 0,
-          autoplay: {
-            delay: 3000,
-            disableOnInteraction: false,
-          },
-          slidesPerView: 1,
-          breakpoints: {
-            420: { slidesPerView: 1 },
-            560: { slidesPerView: 2 },
-            768: { slidesPerView: 3 },
-            1200: { slidesPerView: 4 },
-            1920: { slidesPerView: 5 },
-          },
-        });
-
-        new Swiper(".brand-swiper", {
-          loop: true,
-          speed: 5000,
-          spaceBetween: 60,
-          snapToSlideEdge: false,
-          autoplay: {
-            delay: 0,
-            disableOnInteraction: false,
-          },
-          slidesPerView: "auto",
-          allowTouchMove: false,
-        });
-      });
-    </script>
-  </head>
-  <body>
-    <nav class="navbar navbar-expand-lg navbar-light bg-white shadow-sm">
-      <div class="container">
-        <img src="assets/images/logo.png" alt="Logo Profil Indah" />
-        <button
-          class="navbar-toggler"
-          type="button"
-          data-bs-toggle="collapse"
-          data-bs-target="#mainNavbar"
-        >
-          <span class="navbar-toggler-icon"></span>
-        </button>
-
-        <div class="collapse navbar-collapse" id="mainNavbar">
-          <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
-            <li class="nav-item">
-              <a class="nav-link" href="#">Tentang Kami</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="#">Kontak</a>
-            </li>
-
-            <button class="nav-button">
-              <img src="assets/icon/ig.svg" />
-            </button>
-
-            <button class="nav-button">
-              <img src="assets/icon/whatsapp.svg" />
-            </button>
-          </ul>
+  <div style="background: color-mix(in oklch, var(--color-neutral-900) 72%, black); color: var(--color-bg);">
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-12">
+    <section style="padding: clamp(64px, 9vw, 128px) 0 0;">
+      <div class="pi-herogrid" style="display: grid; grid-template-columns: minmax(0, 7fr) minmax(0, 5fr); gap: 32px clamp(28px, 4vw, 72px); align-items: end; margin: 0 0 clamp(48px, 6vw, 80px);">
+        <div>
+          <span class="pi-rise" style="display: block; font-size: 13px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--color-neutral-400); margin: 0 0 28px; animation-delay: 0.05s;"><span aria-hidden="true" style="display: inline-block; width: 22px; height: 2px; background: var(--color-accent); margin-right: 12px; vertical-align: middle; transform: translateY(-2px);"></span>Denpasar, Bali &nbsp;·&nbsp; Sejak 2003</span>
+          <h1 class="pi-rise" style="font-size: clamp(48px, 6.4vw, 104px); font-weight: 500; line-height: 0.98; letter-spacing: -0.04em; margin: 0; margin-left: -0.058em; max-width: 14ch; color: var(--color-bg); animation-delay: 0.12s;">Solusi Material Interior Lengkap &amp; Terpercaya</h1>
+        </div>
+        <div class="pi-rise" style="animation-delay: 0.22s;">
+          <p style="font-size: 17px; line-height: 1.7; max-width: 40ch; margin: 0 0 32px; color: var(--color-neutral-300);">HPL, multiplek, engsel, rel laci, handle, sampai roda — untuk workshop furniture, kontraktor, dan reseller di seluruh Indonesia.</p>
+          <a class="pi-lux" href="https://wa.me/628213106432" target="_blank" rel="noopener" style="display: inline-flex; align-items: center; gap: clamp(24px, 3vw, 48px); padding: 20px 24px; background: var(--color-bg); color: var(--color-text); text-decoration: none; border: 2px solid var(--color-bg); box-shadow: var(--shadow-md);">
+              <span style="font-family: var(--font-heading); font-weight: var(--font-heading-weight); font-size: 17px; letter-spacing: 0.01em; white-space: nowrap;">Kirim daftar kebutuhan</span>
+              <span class="pi-cta-arrow" style="font-family: var(--font-heading); font-size: 20px; line-height: 1;">&#8594;</span>
+            </a>
         </div>
       </div>
-    </nav>
-    <section id="hero" class="p-0">
-      <div class="container-fluid">
-        <div class="row">
-          <div class="col-12 px-0 position-relative">
-            <div class="hero-label-backgound">
-              <h1 class="flex-grow-1">
-                Solusi Material Interior<br /><strong
-                  >Lengkap & Terpercaya</strong
-                >
-              </h1>
-              <button>
-                <img src="assets/icon/whatsapp.svg" />
-                <span>Hubungi Kami</span>
-              </button>
+      <div class="pi-htiles" style="display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 2px;">
+        <a class="pi-htile pi-rise" href="kategori.html#panel" style="position: relative; display: block; overflow: hidden; aspect-ratio: 3 / 4; border: 1px solid color-mix(in srgb, var(--color-bg) 22%, transparent); text-decoration: none; color: var(--color-bg); background: var(--color-neutral-800); animation-delay: 0.3s;">
+          <img src="assets/photo-walnut-panel.png" alt="Dinding panel walnut" style="position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover;">
+          <div style="position: absolute; inset: 0; background: linear-gradient(0deg, color-mix(in srgb, #0e0d0d 82%, transparent) 0%, color-mix(in srgb, #0e0d0d 18%, transparent) 45%, transparent 70%);"></div>
+          <div style="position: absolute; left: 0; right: 0; bottom: 0; display: flex; align-items: center; justify-content: space-between; gap: 12px; padding: clamp(16px, 2vw, 28px);">
+            <span style="font-size: 12px; letter-spacing: 0.12em; text-transform: uppercase;">Panel &amp; Lembaran</span>
+            <span class="pi-cta-arrow" style="font-size: 18px; line-height: 1;">&#8594;</span>
+          </div>
+        </a>
+        <a class="pi-htile pi-rise" href="kategori.html#engsel" style="position: relative; display: block; overflow: hidden; aspect-ratio: 3 / 4; border: 1px solid color-mix(in srgb, var(--color-bg) 22%, transparent); text-decoration: none; color: var(--color-bg); background: var(--color-neutral-800); animation-delay: 0.38s;">
+          <img src="assets/photo-kitchen-island.png" alt="Kitchen island kayu dengan top putih" style="position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover;">
+          <div style="position: absolute; inset: 0; background: linear-gradient(0deg, color-mix(in srgb, #0e0d0d 82%, transparent) 0%, color-mix(in srgb, #0e0d0d 18%, transparent) 45%, transparent 70%);"></div>
+          <div style="position: absolute; left: 0; right: 0; bottom: 0; display: flex; align-items: center; justify-content: space-between; gap: 12px; padding: clamp(16px, 2vw, 28px);">
+            <span style="font-size: 12px; letter-spacing: 0.12em; text-transform: uppercase;">Kitchen &amp; Kabinet</span>
+            <span class="pi-cta-arrow" style="font-size: 18px; line-height: 1;">&#8594;</span>
+          </div>
+        </a>
+        <a class="pi-htile pi-rise" href="kategori.html#handle" style="position: relative; display: block; overflow: hidden; aspect-ratio: 3 / 4; border: 1px solid color-mix(in srgb, var(--color-bg) 22%, transparent); text-decoration: none; color: var(--color-bg); background: var(--color-neutral-800); animation-delay: 0.46s;">
+          <img src="assets/photo-slat-wall.png" alt="Kabinet dan dinding lamela" style="position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover;">
+          <div style="position: absolute; inset: 0; background: linear-gradient(0deg, color-mix(in srgb, #0e0d0d 82%, transparent) 0%, color-mix(in srgb, #0e0d0d 18%, transparent) 45%, transparent 70%);"></div>
+          <div style="position: absolute; left: 0; right: 0; bottom: 0; display: flex; align-items: center; justify-content: space-between; gap: 12px; padding: clamp(16px, 2vw, 28px);">
+            <span style="font-size: 12px; letter-spacing: 0.12em; text-transform: uppercase;">Handle &amp; Finishing</span>
+            <span class="pi-cta-arrow" style="font-size: 18px; line-height: 1;">&#8594;</span>
+          </div>
+        </a>
+      </div>
+    </section>
+      </div>
+    </div>
+  </div>
+
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-12">
+    <section class="pi-stats" style="display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 32px 48px; padding: clamp(56px, 6vw, 88px) 0;">
+      <div style="border-left: 2px solid color-mix(in srgb, var(--color-bg) 18%, transparent); padding-left: 20px;">
+        <span style="display: block; font-size: 12px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--color-neutral-400); margin: 0 0 12px;">Pelanggan terdaftar</span>
+        <p style="font-family: var(--font-heading); font-weight: var(--font-heading-weight); font-size: clamp(30px, 3.6vw, 46px); line-height: 1; letter-spacing: -0.025em; margin: 0 0 10px; color: var(--color-bg); font-weight: 500;">5.000+</p>
+        <p style="font-size: 13px; line-height: 1.55; margin: 0; color: var(--color-neutral-400);">Workshop, kontraktor, dan reseller di seluruh Bali.</p>
+      </div>
+      <div style="border-left: 2px solid color-mix(in srgb, var(--color-bg) 18%, transparent); padding-left: 20px;">
+        <span style="display: block; font-size: 12px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--color-neutral-400); margin: 0 0 12px;">Konsumen aktif</span>
+        <p style="font-family: var(--font-heading); font-weight: var(--font-heading-weight); font-size: clamp(30px, 3.6vw, 46px); line-height: 1; letter-spacing: -0.025em; margin: 0 0 10px; color: var(--color-bg); font-weight: 500;">±2.000</p>
+        <p style="font-size: 13px; line-height: 1.55; margin: 0; color: var(--color-neutral-400);">Berbelanja rutin sepanjang 2026.</p>
+      </div>
+      <div style="border-left: 2px solid color-mix(in srgb, var(--color-bg) 18%, transparent); padding-left: 20px;">
+        <span style="display: block; font-size: 12px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--color-neutral-400); margin: 0 0 12px;">Melayani sejak</span>
+        <p style="font-family: var(--font-heading); font-weight: var(--font-heading-weight); font-size: clamp(30px, 3.6vw, 46px); line-height: 1; letter-spacing: -0.025em; margin: 0 0 10px; color: var(--color-bg); font-weight: 500;">2003</p>
+        <p style="font-size: 13px; line-height: 1.55; margin: 0; color: var(--color-neutral-400);">Dua puluh tiga tahun di Buluh Indah, Denpasar.</p>
+      </div>
+    </section>
+      </div>
+    </div>
+  </div>
+
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-12">
+    <section style="padding: clamp(48px, 6vw, 72px) 0 clamp(72px, 8vw, 112px); border-top: 2px solid color-mix(in srgb, var(--color-bg) 18%, transparent);">
+      <span style="display: block; font-size: 13px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--color-neutral-400); margin: 32px 0 18px;"><span aria-hidden="true" style="display: inline-block; width: 22px; height: 2px; background: var(--color-accent); margin-right: 12px; vertical-align: middle; transform: translateY(-2px);"></span>Brand resmi</span>
+      <h2 style="font-size: clamp(28px, 3.4vw, 44px); line-height: 1.08; letter-spacing: -0.02em; margin: 0 0 36px; margin-left: -0.03em; max-width: 22ch; font-weight: 500; color: var(--color-bg);">Merek yang kami sediakan</h2>
+      <div class="pi-brandrow" style="display: flex; gap: 2px; min-height: 360px;">
+          <button type="button" class="pi-brand" data-photo="assets/brand-taco-photo.webp" data-logo="assets/brand-taco.png" aria-expanded="false">
+            <div class="pi-brand-scrim"></div>
+            <span class="pi-vert">Taco</span>
+            <div class="pi-brand-panel">
+              <div class="pi-brand-logo" role="img" aria-label="Taco"></div>
+              <h3 class="pi-brand-title">Taco</h3>
+              <p class="pi-brand-desc">HPL, PVC sheet, edging, dan lem Taco — stok motif paling lengkap di toko, termasuk seri Clean Touch dan Toughtop.</p>
+              <span class="pi-brand-cat">Panel · Edging · Lem</span>
+              <span class="pi-brand-credit">Sumber gambar: taco.co.id</span>
             </div>
-            <div class="swiper hero-swiper">
-              <!-- Additional required wrapper -->
-              <div class="swiper-wrapper">
-                <!-- Slides -->>
-                <div class="swiper-slide">
-                  <img
-                    src="assets/images/image-1.png"
-                    class="d-block"
-                    alt="..."
-                  />
-                </div>
-                <div class="swiper-slide">
-                  <img
-                    src="assets/images/image-2.png"
-                    class="d-block"
-                    alt="..."
-                  />
-                </div>
-                <div class="swiper-slide">
-                  <img
-                    src="assets/images/image-3.png"
-                    class="d-block"
-                    alt="..."
-                  />
-                </div>
-                <div class="swiper-slide">
-                  <img
-                    src="assets/images/image-4.png"
-                    class="d-block"
-                    alt="..."
-                  />
-                </div>
-                <div class="swiper-slide">
-                  <img
-                    src="assets/images/image-5.png"
-                    class="d-block"
-                    alt="..."
-                  />
-                </div>
-              </div>
+          </button>
+          <button type="button" class="pi-brand" data-photo="assets/brand-aica-photo.png" data-logo="assets/brand-aica.png" aria-expanded="false">
+            <div class="pi-brand-scrim"></div>
+            <span class="pi-vert">Aica</span>
+            <div class="pi-brand-panel">
+              <div class="pi-brand-logo" role="img" aria-label="Aica"></div>
+              <h3 class="pi-brand-title">Aica</h3>
+              <p class="pi-brand-desc">HPL Aica untuk kitchen set dan kabinet, dengan pilihan motif kayu dan solid yang tahan gores.</p>
+              <span class="pi-brand-cat">Panel &amp; Lembaran</span>
+              <span class="pi-brand-credit">Sumber gambar: aica.co.id</span>
             </div>
-          </div>
-          <div class="col-12 py-4" id="brand-wrapper">
-            <div class="swiper brand-swiper">
-              <div class="swiper-wrapper">
-                <div class="swiper-slide">
-                  <img src="assets/images/taco.png" alt="..." />
-                </div>
-                <div class="swiper-slide">
-                  <img src="assets/images/huben.png" alt="..." />
-                </div>
-                <div class="swiper-slide">
-                  <img src="assets/images/aica.png" alt="..." />
-                </div>
-                <div class="swiper-slide">
-                  <img src="assets/images/harfit.png" alt="..." />
-                </div>
-                <div class="swiper-slide">
-                  <img src="assets/images/dekson.png" alt="..." />
-                </div>
-                <div class="swiper-slide">
-                  <img src="assets/images/blum.png" alt="..." />
-                </div>
-                <div class="swiper-slide">
-                  <img src="assets/images/aidi.png" alt="..." />
-                </div>
-                <div class="swiper-slide">
-                  <img src="assets/images/hafele.png" alt="..." />
-                </div>
-              </div>
+          </button>
+          <button type="button" class="pi-brand" data-photo="assets/brand-blum-photo.png" data-logo="assets/brand-blum.png" aria-expanded="false">
+            <div class="pi-brand-scrim"></div>
+            <span class="pi-vert">Blum</span>
+            <div class="pi-brand-panel">
+              <div class="pi-brand-logo" role="img" aria-label="Blum"></div>
+              <h3 class="pi-brand-title">Blum</h3>
+              <p class="pi-brand-desc">Engsel dan sistem laci Austria — Legrabox, Tandembox, dan engsel soft close untuk pekerjaan kelas atas.</p>
+              <span class="pi-brand-cat">Engsel &amp; Rel</span>
+              <span class="pi-brand-credit">Sumber gambar: blum.com</span>
             </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section class="red" id="about">
-      <div class="container">
-        <div class="row">
-          <div class="col-12 col-md-6 mb-5 mb-md-0" id="about-text">
-            <h2>Tentang Kami</h2>
-          </div>
-          <div class="col-12 col-md-6">
-            <p>
-              <strong>Profil Indah</strong> adalah toko penyedia kebutuhan
-              hardware dan finishing interior yang menghadirkan solusi lengkap
-              untuk proyek hunian maupun komersial.
-            </p>
-            <p>
-              Kami menyediakan berbagai pilihan material berkualitas mulai dari
-              kebutuhan
-              <strong>
-                furniture, kitchen set, laminates, HPL, flooring, hingga
-                hardware pendukung interior </strong
-              >. Dengan produk pilihan dan kualitas terjamin, Profil Indah hadir
-              untuk membantu mewujudkan desain interior yang rapi, kuat, dan
-              estetis.
-            </p>
-            <p>
-              Didukung dengan layanan yang responsif dan produk yang terus
-              mengikuti tren industri interior, Profil Indah berkomitmen menjadi
-              partner terpercaya untuk kontraktor, desainer interior, hingga
-              kebutuhan rumah tangga.
-            </p>
-          </div>
-        </div>
-      </div>
-    </section>
-    <section id="why">
-      <div class="container">
-        <div class="row">
-          <div class="col-12 col-md-6">
-            <img src="assets/images/why.png" class="w-100" />
-          </div>
-          <div class="col-12 col-md-6 p-4">
-            <h2>Mengapa Profil Indah?</h2>
-
-            <div class="why-card-list">
-              <div class="why-card">
-                <img src="assets/icon/checklist.svg" />
-                <div class="text">
-                  <p><strong>Produk berkualitas & Teruji</strong></p>
-                  <small>
-                    Kami hanya menyediakan material dari brand terpercaya dengan
-                    standar kualitas tinggi.
-                  </small>
-                </div>
-              </div>
-
-              <div class="why-card">
-                <img src="assets/icon/checklist.svg" />
-                <div class="text">
-                  <p><strong>Pilihan Lengkap</strong></p>
-                  <small>
-                    Semua kebutuhan interior dalam satu tempat — hemat waktu dan
-                    biaya.
-                  </small>
-                </div>
-              </div>
-
-              <div class="why-card">
-                <img src="assets/icon/checklist.svg" />
-                <div class="text">
-                  <p><strong>Harga Kompetitif</strong></p>
-                  <small
-                    >Harga bersahabat untuk proyek kecil maupun besar.</small
-                  >
-                </div>
-              </div>
-
-              <div class="why-card">
-                <img src="assets/icon/checklist.svg" />
-                <div class="text">
-                  <p><strong>Cocok untuk Profesional & Personal</strong></p>
-                  <small>
-                    Kontraktor, tukang interior, developer, hingga renovasi
-                    rumah pribadi.
-                  </small>
-                </div>
-              </div>
+          </button>
+          <button type="button" class="pi-brand" data-photo="assets/brand-hafele-photo.png" data-logo="assets/brand-hafele.png" aria-expanded="false">
+            <div class="pi-brand-scrim"></div>
+            <span class="pi-vert">Häfele</span>
+            <div class="pi-brand-panel">
+              <div class="pi-brand-logo" role="img" aria-label="Häfele"></div>
+              <h3 class="pi-brand-title">Häfele</h3>
+              <p class="pi-brand-desc">Engsel, rel, handle, dan aksesori kabinet, sampai peralatan dapur built-in untuk proyek hunian dan komersial.</p>
+              <span class="pi-brand-cat">Hardware · Home Appliance</span>
+              <span class="pi-brand-credit">Sumber gambar: hafele.co.id</span>
             </div>
-          </div>
-        </div>
+          </button>
+          <button type="button" class="pi-brand" data-photo="assets/brand-huben-photo.png" data-logo="assets/brand-huben.png" aria-expanded="false">
+            <div class="pi-brand-scrim"></div>
+            <span class="pi-vert">Hüben</span>
+            <div class="pi-brand-panel">
+              <div class="pi-brand-logo" role="img" aria-label="Hüben"></div>
+              <h3 class="pi-brand-title">Hüben</h3>
+              <p class="pi-brand-desc">Engsel soft close, handle, dan kelengkapan pintu dengan harga bersahabat untuk proyek volume besar.</p>
+              <span class="pi-brand-cat">Engsel · Handle · Kunci</span>
+              <span class="pi-brand-credit">Sumber gambar: huben.co.id</span>
+            </div>
+          </button>
       </div>
     </section>
+      </div>
+    </div>
+  </div>
 
-    <hr />
-    <section id="solution">
-      <div class="container">
-        <div class="row">
-          <div class="col-12">
-            <h2 class="mb-5">Solusi Material Kebutuhan Interior Anda</h2>
-          </div>
-          <div class="col-12 col-md-6" id="solution-image"></div>
-          <div
-            class="col-12 col-md-6 d-flex flex-column justify-content-center align-items-start"
-          >
-            <p>
-              Apa pun proyek Anda, renovasi rumah, pembuatan furniture custom,
-              hingga proyek komersial Profil Indah menyediakan material yang
-              tepat untuk membantu Anda bekerja lebih cepat, rapi, dan efisien.
-            </p>
+  </div>
 
-            <p>
-              Kami memahami setiap proyek memiliki kebutuhan berbeda. Karena
-              itu, kami menghadirkan pilihan material yang lengkap, mudah
-              didapat, dan siap mendukung hasil akhir yang kuat, tahan lama, dan
-              terlihat profesional.
-            </p>
-
-            <button class="solution-button mt-3">Pelajari Lebih Lanjut</button>
-          </div>
-        </div>
+  <div style="color: var(--color-bg);">
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-12">
+    <section id="kategori" style="padding: clamp(72px, 8vw, 112px) 0; scroll-margin-top: 72px;">
+      <span style="display: block; font-size: 13px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--color-neutral-400); margin: 0 0 18px;"><span aria-hidden="true" style="display: inline-block; width: 22px; height: 2px; background: var(--color-accent); margin-right: 12px; vertical-align: middle; transform: translateY(-2px);"></span>Kategori produk</span>
+      <h2 style="font-size: clamp(28px, 3.4vw, 44px); line-height: 1.08; letter-spacing: -0.02em; margin: 0 0 40px; margin-left: -0.03em; max-width: 22ch; font-weight: 500; color: var(--color-bg);">Lagi cari barang apa?</h2>
+      <div class="pi-catgrid" style="display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); border-top: 1px solid color-mix(in srgb, var(--color-bg) 16%, transparent); border-left: 1px solid color-mix(in srgb, var(--color-bg) 16%, transparent);">
+        <a class="pi-cell" href="kategori.html#panel" style="display: flex; flex-direction: column; min-height: 230px; padding: 26px clamp(18px, 2vw, 28px) 24px; border-right: 1px solid color-mix(in srgb, var(--color-bg) 16%, transparent); border-bottom: 1px solid color-mix(in srgb, var(--color-bg) 16%, transparent); text-decoration: none; color: var(--color-bg); transition: background 0.25s;">
+          <div style="display: flex; align-items: center; justify-content: space-between; margin: 0 0 26px;"><span style="font-family: var(--font-heading); font-weight: var(--font-heading-weight); font-size: 13px; letter-spacing: 0.08em; color: var(--color-neutral-500);">01<span style="color: var(--color-accent);">.</span></span><span class="pi-arrow" style="font-family: var(--font-heading); font-size: 17px; line-height: 1; color: var(--color-accent);">&#8594;</span></div>
+          <h3 style="font-size: clamp(19px, 1.9vw, 24px); line-height: 1.15; letter-spacing: -0.015em; margin: 0 0 10px; margin-left: -0.02em; color: var(--color-bg);">Panel &amp; Lembaran</h3>
+          <p style="font-size: 14px; line-height: 1.65; margin: 0 0 14px; color: var(--color-neutral-400);">Bahan utama badan furniture dan finishing permukaan, dari HPL Taco sampai multiplek.</p>
+          <p style="font-size: 11px; letter-spacing: 0.06em; text-transform: uppercase; line-height: 1.6; margin: auto 0 0; padding-top: 12px; border-top: 1px solid color-mix(in srgb, var(--color-bg) 14%, transparent); color: var(--color-neutral-400);">HPL · Multiplek · Board · Edging · Cerarl &amp; Toughtop</p>
+        </a>
+        <a class="pi-cell" href="kategori.html#engsel" style="display: flex; flex-direction: column; min-height: 230px; padding: 26px clamp(18px, 2vw, 28px) 24px; border-right: 1px solid color-mix(in srgb, var(--color-bg) 16%, transparent); border-bottom: 1px solid color-mix(in srgb, var(--color-bg) 16%, transparent); text-decoration: none; color: var(--color-bg); transition: background 0.25s;">
+          <div style="display: flex; align-items: center; justify-content: space-between; margin: 0 0 26px;"><span style="font-family: var(--font-heading); font-weight: var(--font-heading-weight); font-size: 13px; letter-spacing: 0.08em; color: var(--color-neutral-500);">02<span style="color: var(--color-accent);">.</span></span><span class="pi-arrow" style="font-family: var(--font-heading); font-size: 17px; line-height: 1; color: var(--color-accent);">&#8594;</span></div>
+          <h3 style="font-size: clamp(19px, 1.9vw, 24px); line-height: 1.15; letter-spacing: -0.015em; margin: 0 0 10px; margin-left: -0.02em; color: var(--color-bg);">Engsel &amp; Rel</h3>
+          <p style="font-size: 14px; line-height: 1.65; margin: 0 0 14px; color: var(--color-neutral-400);">Sistem gerak pintu kabinet dan laci, dari yang standar sampai soft close.</p>
+          <p style="font-size: 11px; letter-spacing: 0.06em; text-transform: uppercase; line-height: 1.6; margin: auto 0 0; padding-top: 12px; border-top: 1px solid color-mix(in srgb, var(--color-bg) 14%, transparent); color: var(--color-neutral-400);">Engsel · Rail laci · Rel tandem · Legrabox · Floor spring</p>
+        </a>
+        <a class="pi-cell" href="kategori.html#handle" style="display: flex; flex-direction: column; min-height: 230px; padding: 26px clamp(18px, 2vw, 28px) 24px; border-right: 1px solid color-mix(in srgb, var(--color-bg) 16%, transparent); border-bottom: 1px solid color-mix(in srgb, var(--color-bg) 16%, transparent); text-decoration: none; color: var(--color-bg); transition: background 0.25s;">
+          <div style="display: flex; align-items: center; justify-content: space-between; margin: 0 0 26px;"><span style="font-family: var(--font-heading); font-weight: var(--font-heading-weight); font-size: 13px; letter-spacing: 0.08em; color: var(--color-neutral-500);">03<span style="color: var(--color-accent);">.</span></span><span class="pi-arrow" style="font-family: var(--font-heading); font-size: 17px; line-height: 1; color: var(--color-accent);">&#8594;</span></div>
+          <h3 style="font-size: clamp(19px, 1.9vw, 24px); line-height: 1.15; letter-spacing: -0.015em; margin: 0 0 10px; margin-left: -0.02em; color: var(--color-bg);">Handle &amp; Kunci</h3>
+          <p style="font-size: 14px; line-height: 1.65; margin: 0 0 14px; color: var(--color-neutral-400);">Pegangan, pengaman, dan kelengkapan pintu untuk hunian maupun proyek komersial.</p>
+          <p style="font-size: 11px; letter-spacing: 0.06em; text-transform: uppercase; line-height: 1.6; margin: auto 0 0; padding-top: 12px; border-top: 1px solid color-mix(in srgb, var(--color-bg) 14%, transparent); color: var(--color-neutral-400);">Handle · Kunci · Door closer · Door stopper · Door view</p>
+        </a>
+        <a class="pi-cell" href="kategori.html#roda" style="display: flex; flex-direction: column; min-height: 230px; padding: 26px clamp(18px, 2vw, 28px) 24px; border-right: 1px solid color-mix(in srgb, var(--color-bg) 16%, transparent); border-bottom: 1px solid color-mix(in srgb, var(--color-bg) 16%, transparent); text-decoration: none; color: var(--color-bg); transition: background 0.25s;">
+          <div style="display: flex; align-items: center; justify-content: space-between; margin: 0 0 26px;"><span style="font-family: var(--font-heading); font-weight: var(--font-heading-weight); font-size: 13px; letter-spacing: 0.08em; color: var(--color-neutral-500);">04<span style="color: var(--color-accent);">.</span></span><span class="pi-arrow" style="font-family: var(--font-heading); font-size: 17px; line-height: 1; color: var(--color-accent);">&#8594;</span></div>
+          <h3 style="font-size: clamp(19px, 1.9vw, 24px); line-height: 1.15; letter-spacing: -0.015em; margin: 0 0 10px; margin-left: -0.02em; color: var(--color-bg);">Roda, Kaki &amp; Rangka</h3>
+          <p style="font-size: 14px; line-height: 1.65; margin: 0 0 14px; color: var(--color-neutral-400);">Penopang dan struktur untuk kursi, sofa, meja, dan rak.</p>
+          <p style="font-size: 11px; letter-spacing: 0.06em; text-transform: uppercase; line-height: 1.6; margin: auto 0 0; padding-top: 12px; border-top: 1px solid color-mix(in srgb, var(--color-bg) 14%, transparent); color: var(--color-neutral-400);">Roda · Kaki sofa · Braket · Ambalan · Frame</p>
+        </a>
+        <a class="pi-cell" href="kategori.html#listrik" style="display: flex; flex-direction: column; min-height: 230px; padding: 26px clamp(18px, 2vw, 28px) 24px; border-right: 1px solid color-mix(in srgb, var(--color-bg) 16%, transparent); border-bottom: 1px solid color-mix(in srgb, var(--color-bg) 16%, transparent); text-decoration: none; color: var(--color-bg); transition: background 0.25s;">
+          <div style="display: flex; align-items: center; justify-content: space-between; margin: 0 0 26px;"><span style="font-family: var(--font-heading); font-weight: var(--font-heading-weight); font-size: 13px; letter-spacing: 0.08em; color: var(--color-neutral-500);">05</span><span class="pi-arrow" style="font-family: var(--font-heading); font-size: 17px; line-height: 1; color: var(--color-accent);">&#8594;</span></div>
+          <h3 style="font-size: clamp(19px, 1.9vw, 24px); line-height: 1.15; letter-spacing: -0.015em; margin: 0 0 10px; margin-left: -0.02em; color: var(--color-bg);">Listrik &amp; Lampu</h3>
+          <p style="font-size: 14px; line-height: 1.65; margin: 0 0 14px; color: var(--color-neutral-400);">Kabel, saklar, dan lampu untuk kitchen set, kabinet, dan ruang kerja.</p>
+          <p style="font-size: 11px; letter-spacing: 0.06em; text-transform: uppercase; line-height: 1.6; margin: auto 0 0; padding-top: 12px; border-top: 1px solid color-mix(in srgb, var(--color-bg) 14%, transparent); color: var(--color-neutral-400);">Kabel · Saklar · Lampu · Lighting</p>
+        </a>
+        <a class="pi-cell" href="kategori.html#pelengkap" style="display: flex; flex-direction: column; min-height: 230px; padding: 26px clamp(18px, 2vw, 28px) 24px; border-right: 1px solid color-mix(in srgb, var(--color-bg) 16%, transparent); border-bottom: 1px solid color-mix(in srgb, var(--color-bg) 16%, transparent); text-decoration: none; color: var(--color-bg); transition: background 0.25s;">
+          <div style="display: flex; align-items: center; justify-content: space-between; margin: 0 0 26px;"><span style="font-family: var(--font-heading); font-weight: var(--font-heading-weight); font-size: 13px; letter-spacing: 0.08em; color: var(--color-neutral-500);">06</span><span class="pi-arrow" style="font-family: var(--font-heading); font-size: 17px; line-height: 1; color: var(--color-accent);">&#8594;</span></div>
+          <h3 style="font-size: clamp(19px, 1.9vw, 24px); line-height: 1.15; letter-spacing: -0.015em; margin: 0 0 10px; margin-left: -0.02em; color: var(--color-bg);">Pelengkap Workshop</h3>
+          <p style="font-size: 14px; line-height: 1.65; margin: 0 0 14px; color: var(--color-neutral-400);">Barang kecil yang selalu dibutuhkan di tengah pekerjaan.</p>
+          <p style="font-size: 11px; letter-spacing: 0.06em; text-transform: uppercase; line-height: 1.6; margin: auto 0 0; padding-top: 12px; border-top: 1px solid color-mix(in srgb, var(--color-bg) 14%, transparent); color: var(--color-neutral-400);">Lem · Screw · Karet · Grass · Lubang hawa</p>
+        </a>
+      </div>
+      <div style="display: flex; gap: var(--space-3); flex-wrap: wrap; padding-top: 32px;">
+        <a class="pi-lux" href="https://wa.me/628213106432" target="_blank" rel="noopener" style="display: inline-flex; align-items: center; gap: clamp(24px, 3vw, 48px); padding: 20px 24px; background: var(--color-bg); color: var(--color-text); text-decoration: none; border: 2px solid var(--color-bg); box-shadow: var(--shadow-md);">
+          <span style="font-family: var(--font-heading); font-weight: var(--font-heading-weight); font-size: 17px; letter-spacing: 0.01em; white-space: nowrap;">Tanya stok &amp; harga</span>
+          <span class="pi-cta-arrow" style="font-family: var(--font-heading); font-size: 20px; line-height: 1;">&#8594;</span>
+        </a>
+        <a class="pi-ctaw" href="produk.html" style="display: inline-flex; align-items: center; gap: clamp(24px, 3vw, 48px); padding: 20px 24px; background: transparent; color: var(--color-bg); text-decoration: none; border: 2px solid color-mix(in srgb, var(--color-bg) 50%, transparent);">
+          <span style="font-family: var(--font-heading); font-weight: var(--font-heading-weight); font-size: 17px; letter-spacing: 0.01em; white-space: nowrap;">Lihat semua produk</span>
+          <span class="pi-cta-arrow" style="font-family: var(--font-heading); font-size: 20px; line-height: 1;">&#8594;</span>
+        </a>
       </div>
     </section>
-    <hr class="mb-5" />
-
-    <section id="contact" class="red">
-      <div class="container">
-        <div class="row">
-          <div class="col-12 col-md-6 mb-5 mb-md-0">
-            <iframe
-              src="https://www.google.com/maps?q=Profil+Indah+Denpasar&output=embed"
-              width="100%"
-              height="450"
-              style="border: 0"
-              allowfullscreen=""
-              loading="lazy"
-              referrerpolicy="no-referrer-when-downgrade"
-            >
-            </iframe>
-          </div>
-          <div class="col-12 col-md-6">
-            <h2 class="mb-4">Hubungi Kami</h2>
-            <p class="mb-0"><strong>Toko Profil Indah</strong></p>
-            <p>
-              Jalan Buluh Indah no. 54C, Pemecutan Kaja, Kec. Denpasar Utara<br />Kota
-              Denpasar<br />Bali
-            </p>
-          </div>
-        </div>
       </div>
-    </section>
-  </body>
-  <footer>
-    <div class="container py-4">
+    </div>
+  </div>
+
+  </div>
+
+  <section style="background: var(--color-text); color: var(--color-bg);">
+    <div class="container-fluid" style="padding-top: 80px; padding-bottom: 88px;">
       <div class="row">
-        <div class="col-6 col-md-4 order-1">
-          <img src="assets/images/logo.png" alt="Logo Profil Indah" />
+        <div class="col-12">
+      <div class="pi-herogrid" style="display: grid; grid-template-columns: minmax(0, 6fr) minmax(0, 6fr); gap: clamp(32px, 4vw, 64px) clamp(28px, 4vw, 72px); align-items: stretch;">
+        <figure style="margin: 0; display: flex; flex-direction: column;">
+          <div class="pi-zoom" style="position: relative; overflow: hidden; flex: 1 1 auto; min-height: 340px; background: var(--color-neutral-800);">
+            <img src="assets/proyek-pantry-rotan.jpeg" alt="Pantry dengan pintu rotan dan ambalan kayu" style="display: block; width: 100%; height: 100%; object-fit: cover; filter: contrast(1.06) saturate(1.04) brightness(1.02);">
+          </div>
+          <figcaption style="display: flex; flex-wrap: wrap; gap: 4px 16px; justify-content: space-between; border-top: 2px solid color-mix(in srgb, var(--color-bg) 30%, transparent); padding-top: 12px; margin-top: 14px; font-size: 12px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--color-bg);">
+            <span><span style="color: var(--color-accent);">Fig. 02</span> &nbsp;—&nbsp; Pantry rotan</span>
+            <span>Pekerjaan pelanggan, Bali</span>
+          </figcaption>
+        </figure>
+        <div>
+          <span style="display: block; font-size: 13px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--color-neutral-400); margin: 0 0 18px;"><span aria-hidden="true" style="display: inline-block; width: 22px; height: 2px; background: var(--color-accent); margin-right: 12px; vertical-align: middle; transform: translateY(-2px);"></span>Aplikasi</span>
+          <h2 style="font-size: clamp(28px, 3.2vw, 42px); line-height: 1.08; letter-spacing: -0.02em; margin: 0 0 20px; margin-left: -0.03em; color: var(--color-bg); font-weight: 500;">Solusi Material Kebutuhan Interior Anda</h2>
+          <p style="font-size: 16px; line-height: 1.75; margin: 0 0 18px; color: var(--color-bg); opacity: 0.8;">Apa pun proyek Anda, renovasi rumah, pembuatan furniture custom, hingga proyek komersial Profil Indah menyediakan material yang tepat untuk membantu Anda bekerja lebih cepat, rapi, dan efisien.</p>
+          <p style="font-size: 16px; line-height: 1.75; margin: 0 0 28px; color: var(--color-bg); opacity: 0.8;">Satu tempat untuk panel, engsel, rel, handle, sampai lem dan sekrup — dari pesanan satuan sampai borongan.</p>
+          <a class="pi-ctaw" href="produk.html" style="display: inline-flex; align-items: center; gap: clamp(24px, 3vw, 48px); padding: 20px 24px; text-decoration: none; background: transparent; color: var(--color-bg); border: 2px solid var(--color-bg);">
+            <span style="font-family: var(--font-heading); font-weight: var(--font-heading-weight); font-size: 17px; letter-spacing: 0.01em; white-space: nowrap;">Lihat semua produk</span>
+            <span class="pi-cta-arrow" style="font-family: var(--font-heading); font-size: 20px; line-height: 1;">&#8594;</span>
+          </a>
         </div>
-        <div class="col-12 col-md-4 order-3 order-md-2 mt-5 mt-md-0">
-          <p>© 2026 Profil Indah (0361) 417109</p>
-        </div>
-        <div
-          class="col-6 col-md-4 d-flex align-items-center gap-3 order-2 order-md-3 justify-content-end"
-        >
-          <button>
-            <img src="assets/icon/ig.svg" />
-          </button>
-
-          <button>
-            <img src="assets/icon/whatsapp.svg" />
-          </button>
+      </div>
         </div>
       </div>
     </div>
-  </footer>
+  </section>
+
+  <div style="color: var(--color-bg);">
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-12">
+    <section id="cara-pesan" style="padding: clamp(72px, 8vw, 112px) 0; scroll-margin-top: 72px;">
+      <div class="pi-2col" style="display: grid; grid-template-columns: minmax(0, 6fr) minmax(0, 6fr); gap: 12px clamp(24px, 5vw, 80px); align-items: end; margin-bottom: 48px;">
+        <div>
+          <span style="display: block; font-size: 13px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--color-neutral-400); margin: 0 0 18px;"><span aria-hidden="true" style="display: inline-block; width: 22px; height: 2px; background: var(--color-accent); margin-right: 12px; vertical-align: middle; transform: translateY(-2px);"></span>Cara pesan</span>
+          <h2 style="font-size: clamp(28px, 3.4vw, 44px); line-height: 1.08; letter-spacing: -0.02em; margin: 0; margin-left: -0.03em; font-weight: 500; color: var(--color-bg);">Empat langkah, lewat WhatsApp</h2>
+        </div>
+        <p style="font-size: 16px; line-height: 1.75; margin: 0; color: var(--color-neutral-400);">Tidak ada form, tidak ada keranjang. Semua pesanan diurus lewat chat oleh orang toko, jadi bisa langsung tanya apa pun.</p>
+      </div>
+      <div class="pi-steps" style="display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); border-top: 1px solid color-mix(in srgb, var(--color-bg) 16%, transparent);">
+        <div class="pi-step" style="padding: 28px clamp(18px, 2.4vw, 40px) 4px; border-left: 1px solid color-mix(in srgb, var(--color-bg) 16%, transparent);">
+          <span class="pi-num" style="display: block; font-family: var(--font-heading); font-weight: var(--font-heading-weight); font-size: clamp(40px, 5vw, 64px); line-height: 0.9; letter-spacing: -0.04em; margin: 0 0 22px; margin-left: -0.04em; color: var(--color-neutral-500);">01</span>
+          <h3 style="font-size: 19px; line-height: 1.25; letter-spacing: -0.01em; margin: 0 0 10px; transition: color 0.25s; color: var(--color-bg);">Kirim daftar</h3>
+          <p style="font-size: 15px; line-height: 1.7; margin: 0; color: var(--color-neutral-400);">Kirim daftar kebutuhan atau foto barang lewat WhatsApp toko. Tidak perlu tahu kodenya — foto saja cukup.</p>
+        </div>
+        <div class="pi-step" style="padding: 28px clamp(18px, 2.4vw, 40px) 4px; border-left: 1px solid color-mix(in srgb, var(--color-bg) 16%, transparent);">
+          <span class="pi-num" style="display: block; font-family: var(--font-heading); font-weight: var(--font-heading-weight); font-size: clamp(40px, 5vw, 64px); line-height: 0.9; letter-spacing: -0.04em; margin: 0 0 22px; margin-left: -0.04em; color: var(--color-neutral-500);">02</span>
+          <h3 style="font-size: 19px; line-height: 1.25; letter-spacing: -0.01em; margin: 0 0 10px; transition: color 0.25s; color: var(--color-bg);">Kami balas harga</h3>
+          <p style="font-size: 15px; line-height: 1.7; margin: 0; color: var(--color-neutral-400);">Stok dicek, harga dan total kami kirim hari itu juga.</p>
+        </div>
+        <div class="pi-step" style="padding: 28px clamp(18px, 2.4vw, 40px) 4px; border-left: 1px solid color-mix(in srgb, var(--color-bg) 16%, transparent);">
+          <span class="pi-num" style="display: block; font-family: var(--font-heading); font-weight: var(--font-heading-weight); font-size: clamp(40px, 5vw, 64px); line-height: 0.9; letter-spacing: -0.04em; margin: 0 0 22px; margin-left: -0.04em; color: var(--color-neutral-500);">03</span>
+          <h3 style="font-size: 19px; line-height: 1.25; letter-spacing: -0.01em; margin: 0 0 10px; transition: color 0.25s; color: var(--color-bg);">Barang disiapkan</h3>
+          <p style="font-size: 15px; line-height: 1.7; margin: 0; color: var(--color-neutral-400);">Setelah disetujui, barang kami kumpulkan di gudang Buluh Indah.</p>
+        </div>
+        <div class="pi-step" style="padding: 28px clamp(18px, 2.4vw, 40px) 4px; border-left: 1px solid color-mix(in srgb, var(--color-bg) 16%, transparent);">
+          <span class="pi-num" style="display: block; font-family: var(--font-heading); font-weight: var(--font-heading-weight); font-size: clamp(40px, 5vw, 64px); line-height: 0.9; letter-spacing: -0.04em; margin: 0 0 22px; margin-left: -0.04em; color: var(--color-neutral-500);">04</span>
+          <h3 style="font-size: 19px; line-height: 1.25; letter-spacing: -0.01em; margin: 0 0 10px; transition: color 0.25s; color: var(--color-bg);">Ambil atau kirim</h3>
+          <p style="font-size: 15px; line-height: 1.7; margin: 0; color: var(--color-neutral-400);">Ambil langsung di toko, atau kami kirim ke lokasi proyek Anda.</p>
+        </div>
+      </div>
+    </section>
+      </div>
+    </div>
+  </div>
+
+  </div>
+
+  <div style="background: var(--color-text); border-top: 1px solid color-mix(in srgb, var(--color-bg) 12%, transparent); border-bottom: 1px solid color-mix(in srgb, var(--color-bg) 12%, transparent);">
+    <div class="container-fluid">
+      <div class="pi-strip" style="display: grid; grid-template-columns: repeat(4, minmax(0, 1fr));">
+        <div style="padding: 24px clamp(16px, 2vw, 32px) 24px 0;">
+          <span style="display: flex; align-items: center; gap: 8px; font-size: 11px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--color-neutral-400); margin: 0 0 6px;"><span aria-hidden="true" style="width: 4px; height: 4px; border-radius: 50%; background: var(--color-accent);"></span>Jam buka</span>
+          <span style="display: block; font-size: 15px; color: var(--color-bg);">Senin – Sabtu, 07.30 – 17.00 WITA</span>
+        </div>
+        <div style="padding: 24px clamp(16px, 2vw, 32px) 24px clamp(16px, 2vw, 32px); border-left: 1px solid color-mix(in srgb, var(--color-bg) 12%, transparent);">
+          <span style="display: flex; align-items: center; gap: 8px; font-size: 11px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--color-neutral-400); margin: 0 0 6px;"><span aria-hidden="true" style="width: 4px; height: 4px; border-radius: 50%; background: var(--color-accent);"></span>Alamat</span>
+          <span style="display: block; font-size: 15px; color: var(--color-bg);">Jl. Buluh Indah No. 54C, Denpasar</span>
+        </div>
+        <div style="padding: 24px clamp(16px, 2vw, 32px) 24px clamp(16px, 2vw, 32px); border-left: 1px solid color-mix(in srgb, var(--color-bg) 12%, transparent);">
+          <span style="display: flex; align-items: center; gap: 8px; font-size: 11px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--color-neutral-400); margin: 0 0 6px;"><span aria-hidden="true" style="width: 4px; height: 4px; border-radius: 50%; background: var(--color-accent);"></span>Respons</span>
+          <span style="display: block; font-size: 15px; color: var(--color-bg);">Chat dibalas hari itu juga</span>
+        </div>
+        <div style="padding: 24px 0 24px clamp(16px, 2vw, 32px); border-left: 1px solid color-mix(in srgb, var(--color-bg) 12%, transparent);">
+          <span style="display: flex; align-items: center; gap: 8px; font-size: 11px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--color-neutral-400); margin: 0 0 6px;"><span aria-hidden="true" style="width: 4px; height: 4px; border-radius: 50%; background: var(--color-accent);"></span>Sejak</span>
+          <span style="display: block; font-size: 15px; color: var(--color-bg);">Melayani sejak 2003</span>
+        </div>
+      </div>
+    </div>
+  </div>
+  <section id="kontak" style="background: var(--color-text); color: var(--color-bg); scroll-margin-top: 72px;">
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-12">
+    <div style="padding: clamp(80px, 9vw, 128px) 0;">
+      <div class="pi-2col" style="display: grid; grid-template-columns: minmax(0, 7fr) minmax(0, 5fr); gap: 40px clamp(24px, 5vw, 80px); align-items: end;">
+        <div>
+          <span style="display: block; font-size: 13px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--color-neutral-400); margin: 0 0 18px;"><span aria-hidden="true" style="display: inline-block; width: 22px; height: 2px; background: var(--color-accent); margin-right: 12px; vertical-align: middle; transform: translateY(-2px);"></span>Hubungi kami</span>
+          <h2 style="font-size: clamp(34px, 4.6vw, 64px); line-height: 1.02; letter-spacing: -0.03em; margin: 0 0 36px; margin-left: -0.058em; font-weight: 500; color: var(--color-bg); max-width: 16ch;">Kirim daftar kebutuhan. Kami balas hari ini.</h2>
+          <a class="pi-lux" href="https://wa.me/628213106432" target="_blank" rel="noopener" style="display: inline-flex; align-items: center; gap: clamp(24px, 3vw, 48px); padding: 20px 24px; background: var(--color-bg); color: var(--color-text); text-decoration: none; border: 2px solid var(--color-bg); box-shadow: var(--shadow-md);">
+            <span style="font-family: var(--font-heading); font-weight: var(--font-heading-weight); font-size: 17px; letter-spacing: 0.01em; white-space: nowrap;">Chat WhatsApp</span>
+            <span class="pi-cta-arrow" style="font-family: var(--font-heading); font-size: 20px; line-height: 1;">&#8594;</span>
+          </a>
+        </div>
+        <div style="border-left: 1px solid color-mix(in srgb, var(--color-bg) 18%, transparent); padding-left: clamp(20px, 3vw, 40px); font-size: 16px; line-height: 1.75; color: var(--color-neutral-300);">
+          <p style="margin: 0 0 6px; color: var(--color-bg); font-weight: 600;">Atau datang langsung ke toko</p>
+          <p style="margin: 0 0 22px;">Jl. Buluh Indah No. 54C, Pemecutan Kaja, Denpasar Utara</p>
+          <a class="pi-maps" href="https://maps.google.com/?q=Toko+Profil+Indah+Jl.+Buluh+Indah+No.54C+Denpasar" target="_blank" rel="noopener" style="display: inline-flex; align-items: center; gap: 10px; font-size: 13px; letter-spacing: 0.08em; text-transform: uppercase; text-decoration: none; color: var(--color-bg); border-bottom: 2px solid var(--color-accent); padding-bottom: 4px;">Buka di Google Maps <span aria-hidden="true">&#8594;</span></a>
+        </div>
+      </div>
+    </div>
+      </div>
+    </div>
+  </div>
+  </section>
+
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-12">
+    <footer style="padding: clamp(56px, 6vw, 80px) 0 32px; border-top: 1px solid color-mix(in srgb, var(--color-bg) 16%, transparent); font-size: 14px; line-height: 1.7; color: var(--color-neutral-300);">
+      <div class="pi-foot" style="display: grid; grid-template-columns: minmax(0, 1.3fr) minmax(0, 1fr) minmax(0, 1fr) minmax(0, 0.7fr); gap: 40px clamp(24px, 4vw, 64px);">
+        <div>
+          <img src="assets/logo-wordmark-light.png" alt="Profil Indah" style="display: block; height: 24px; width: auto; margin: 0 0 20px;">
+          <p style="margin: 0 0 14px;">Jl. Buluh Indah No. 54C, Pemecutan Kaja,<br>Kec. Denpasar Utara, Kota Denpasar,<br>Bali 80118</p>
+          <a href="https://maps.google.com/?q=Toko+Profil+Indah+Jl.+Buluh+Indah+No.54C+Denpasar" target="_blank" rel="noopener" style="font-size: 12px; letter-spacing: 0.1em; text-transform: uppercase; text-decoration: none; color: var(--color-bg); border-bottom: 1px solid var(--color-accent); padding-bottom: 2px;">Petunjuk arah &#8594;</a>
+        </div>
+        <div>
+          <span style="display: block; font-size: 12px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--color-neutral-400); margin: 0 0 16px;">Jam buka</span>
+          <div style="display: grid; grid-template-columns: auto 1fr; gap: 2px 20px; max-width: 290px; white-space: nowrap;">
+            <span>Senin</span><span style="text-align: right;">07.30–17.00 WITA</span>
+            <span>Selasa</span><span style="text-align: right;">07.30–17.00 WITA</span>
+            <span>Rabu</span><span style="text-align: right;">07.30–17.00 WITA</span>
+            <span>Kamis</span><span style="text-align: right;">07.30–17.00 WITA</span>
+            <span>Jumat</span><span style="text-align: right;">07.30–17.00 WITA</span>
+            <span>Sabtu</span><span style="text-align: right;">07.30–17.00 WITA</span>
+            <span>Minggu</span><span style="text-align: right; color: var(--color-accent);">Tutup</span>
+          </div>
+        </div>
+        <div>
+          <span style="display: block; font-size: 12px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--color-neutral-400); margin: 0 0 16px;">Hubungi</span>
+          <p style="margin: 0 0 6px;"><a href="tel:+62361417109" style="text-decoration: none; color: var(--color-neutral-300);">Telepon (0361) 417109</a></p>
+          <p style="margin: 0;"><a href="https://wa.me/628213106432" target="_blank" rel="noopener" style="text-decoration: none; color: var(--color-neutral-300);">WhatsApp +62 821-3106-432</a></p>
+        </div>
+        <div>
+          <span style="display: block; font-size: 12px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--color-neutral-400); margin: 0 0 16px;">Halaman</span>
+          <div style="display: flex; flex-direction: column; gap: 6px;">
+            <a href="index.html" style="text-decoration: none; color: var(--color-neutral-300);">Beranda</a>
+            <a href="produk.html" style="text-decoration: none; color: var(--color-neutral-300);">Produk</a>
+          </div>
+        </div>
+      </div>
+      <p style="margin: 48px 0 0; font-size: 13px; color: var(--color-neutral-400);">Toko Profil Indah — Denpasar, Bali. Sejak 2003.</p>
+    </footer>
+      </div>
+    </div>
+  </div>
+
+</div>
+</body>
 </html>

@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Produk — Toko Profil Indah</title>
+<link rel="stylesheet" href="css/modernist.css">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600&amp;display=swap">
+<style>
+  :root { --color-accent: #e22422; --color-accent-500: #e22422; }
+  body { margin: 0; text-wrap: pretty; }
+  a { color: var(--color-accent-700); }
+  a:hover { color: var(--color-accent); }
+  .pi-wrap { max-width: 1240px; margin: 0 auto; padding: 0 clamp(20px, 5vw, 72px); }
+  .pi-zoom img { transition: transform 0.6s cubic-bezier(0.2, 0.7, 0.2, 1); }
+  .pi-zoom:hover img { transform: scale(1.06); }
+  @media (max-width: 700px) { .pi-2col { grid-template-columns: 1fr !important; } }
+  @media (max-width: 640px) { .nav a.pi-navlink { display: none; } }
+  .pi-cta { transition: background 0.3s, border-color 0.3s, box-shadow 0.3s, transform 0.3s; }
+  .pi-cta:hover { background: var(--color-text); border-color: var(--color-text); box-shadow: var(--shadow-lg); transform: translateY(-2px); }
+  .pi-cta:active { box-shadow: var(--shadow-sm); transform: translateY(0); }
+  .pi-cta-arrow { transition: transform 0.35s cubic-bezier(0.2, 0.7, 0.2, 1); }
+  .pi-cta:hover .pi-cta-arrow, .pi-cta2:hover .pi-cta-arrow, .pi-ctaw:hover .pi-cta-arrow { transform: translateX(8px); }
+  .pi-cta2 { transition: background 0.3s, color 0.3s, box-shadow 0.3s, transform 0.3s; }
+  .pi-cta2:hover { background: var(--color-text); color: var(--color-bg); box-shadow: var(--shadow-md); transform: translateY(-2px); }
+  .pi-cta2:active { box-shadow: none; transform: translateY(0); }
+  .pi-ctaw { transition: background 0.3s, color 0.3s, transform 0.3s; }
+  .pi-ctaw:hover { background: var(--color-bg); color: var(--color-text); transform: translateY(-2px); }
+  .container-fluid { padding-right: max(clamp(20px, 3vw, 56px), calc((100% - 1440px) / 2)); padding-left: max(clamp(20px, 3vw, 56px), calc((100% - 1440px) / 2)); }
+  :root { --font-heading: 'IBM Plex Sans', system-ui, sans-serif; }
+  h1, h2, h3, h4, h5, h6 { font-family: var(--font-heading); }
+  .pi-wrap { max-width: none !important; margin: 0 !important; padding-left: max(clamp(20px, 3vw, 56px), calc((100% - 1440px) / 2)) !important; padding-right: max(clamp(20px, 3vw, 56px), calc((100% - 1440px) / 2)) !important; }
+  .nav a.pi-navlink:hover { color: var(--color-bg) !important; }
+  .pi-lux { transition: background 0.3s, color 0.3s, border-color 0.3s, box-shadow 0.3s, transform 0.3s; }
+  .pi-lux:hover { background: var(--color-accent); border-color: var(--color-accent); color: var(--color-bg); box-shadow: var(--shadow-lg); transform: translateY(-2px); }
+  .pi-lux:active { box-shadow: var(--shadow-sm); transform: translateY(0); }
+  .pi-lux:hover .pi-cta-arrow { transform: translateX(8px); }
+  .pi-chip { transition: background 0.25s, color 0.25s, border-color 0.25s; }
+  .pi-chip:hover { background: var(--color-bg); color: var(--color-text) !important; border-color: var(--color-bg); }
+  body { background: color-mix(in oklch, var(--color-neutral-900) 72%, black); }
+  @media (max-width: 900px) { .pi-pgrid { grid-template-columns: repeat(2, minmax(0, 1fr)) !important; } }
+  @media (max-width: 560px) { .pi-pgrid { grid-template-columns: 1fr !important; } }
+</style>
+<link rel="stylesheet" href="css/site.css">
+<script src="js/site.js" defer></script>
+<script src="js/kategori-data.js" defer></script>
+<script src="js/produk.js" defer></script>
+</head>
+<body>
+<div style="background: color-mix(in oklch, var(--color-neutral-900) 72%, black); color: var(--color-bg); min-height: 100vh;">
+
+  <nav class="nav" style="position: sticky; top: 0; z-index: 20; background: color-mix(in oklch, var(--color-neutral-900) 72%, black); border-bottom: 1px solid color-mix(in srgb, var(--color-bg) 14%, transparent); padding-inline: max(clamp(20px, 3vw, 56px), calc((100% - 1440px) / 2));">
+    <a class="nav-brand" href="index.html" style="display: flex; align-items: center; margin-right: auto;"><img src="assets/logo-wordmark-light.png" alt="Profil Indah" style="display: block; height: 26px; width: auto;"></a>
+    <a class="pi-navlink" href="index.html" style="text-decoration: none; white-space: nowrap; color: var(--color-neutral-300);">Beranda</a>
+    <a class="pi-navlink" href="produk.html" style="text-decoration: none; white-space: nowrap; color: var(--color-bg); font-weight: 600;">Produk</a>
+    <a href="https://wa.me/628213106432" target="_blank" rel="noopener" style="text-decoration: none; white-space: nowrap; color: var(--color-bg);">WhatsApp &nbsp;+62 821-3106-432</a>
+  </nav>
+
+  <div class="pi-wrap">
+    <section style="padding: 64px 0 48px;">
+      <a class="pi-back" href="index.html" style="display: inline-flex; align-items: center; gap: 10px; font-size: 13px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--color-neutral-300); text-decoration: none; margin: 0 0 36px;"><span class="pi-back-arrow" aria-hidden="true">&#8592;</span> Kembali ke beranda</a>
+      <span style="display: block; font-size: 13px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--color-neutral-400); margin: 0 0 20px;">Produk</span>
+      <h1 style="font-size: clamp(36px, 5vw, 68px); line-height: 1.05; letter-spacing: -0.025em; margin: 0 0 24px; margin-left: -0.058em; max-width: 16ch; font-weight: 500; color: var(--color-bg);">Semua kebutuhan workshop, dari panel sampai sekrup.</h1>
+      <p style="font-size: 17px; line-height: 1.65; max-width: 56ch; margin: 0; color: var(--color-neutral-300);">Ukuran, warna, dan merek berbeda per item. Pilih kategori untuk melihat isinya, lalu kirim daftar kebutuhan lewat WhatsApp untuk stok dan harga terbaru.</p>
+    </section>
+  </div>
+
+  <div class="pi-wrap">
+    <section style="padding-bottom: 72px;">
+      <div class="pi-pgrid" style="display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 2px clamp(16px, 2vw, 28px);" id="cat-grid"></div>
+    </section>
+  </div>
+
+  <div style="background: var(--color-text); border-top: 1px solid color-mix(in srgb, var(--color-bg) 12%, transparent); border-bottom: 1px solid color-mix(in srgb, var(--color-bg) 12%, transparent);">
+    <div class="pi-wrap">
+      <div class="pi-strip" style="display: grid; grid-template-columns: repeat(4, minmax(0, 1fr));">
+        <div style="padding: 24px clamp(16px, 2vw, 32px) 24px 0;">
+          <span style="display: flex; align-items: center; gap: 8px; font-size: 11px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--color-neutral-400); margin: 0 0 6px;"><span aria-hidden="true" style="width: 4px; height: 4px; border-radius: 50%; background: var(--color-accent);"></span>Jam buka</span>
+          <span style="display: block; font-size: 15px; color: var(--color-bg);">Senin – Sabtu, 07.30 – 17.00 WITA</span>
+        </div>
+        <div style="padding: 24px clamp(16px, 2vw, 32px) 24px clamp(16px, 2vw, 32px); border-left: 1px solid color-mix(in srgb, var(--color-bg) 12%, transparent);">
+          <span style="display: flex; align-items: center; gap: 8px; font-size: 11px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--color-neutral-400); margin: 0 0 6px;"><span aria-hidden="true" style="width: 4px; height: 4px; border-radius: 50%; background: var(--color-accent);"></span>Alamat</span>
+          <span style="display: block; font-size: 15px; color: var(--color-bg);">Jl. Buluh Indah No. 54C, Denpasar</span>
+        </div>
+        <div style="padding: 24px clamp(16px, 2vw, 32px) 24px clamp(16px, 2vw, 32px); border-left: 1px solid color-mix(in srgb, var(--color-bg) 12%, transparent);">
+          <span style="display: flex; align-items: center; gap: 8px; font-size: 11px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--color-neutral-400); margin: 0 0 6px;"><span aria-hidden="true" style="width: 4px; height: 4px; border-radius: 50%; background: var(--color-accent);"></span>Respons</span>
+          <span style="display: block; font-size: 15px; color: var(--color-bg);">Chat dibalas hari itu juga</span>
+        </div>
+        <div style="padding: 24px 0 24px clamp(16px, 2vw, 32px); border-left: 1px solid color-mix(in srgb, var(--color-bg) 12%, transparent);">
+          <span style="display: flex; align-items: center; gap: 8px; font-size: 11px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--color-neutral-400); margin: 0 0 6px;"><span aria-hidden="true" style="width: 4px; height: 4px; border-radius: 50%; background: var(--color-accent);"></span>Sejak</span>
+          <span style="display: block; font-size: 15px; color: var(--color-bg);">Melayani sejak 2003</span>
+        </div>
+      </div>
+    </div>
+  </div>
+  <section style="background: var(--color-text); color: var(--color-bg); ">
+    <div class="pi-wrap" style="padding-top: 64px; padding-bottom: 64px;">
+      <h3 style="font-size: clamp(28px, 3.6vw, 48px); line-height: 1.05; letter-spacing: -0.02em; margin: 0 0 28px; margin-left: -0.058em; max-width: 18ch; font-weight: 500; color: var(--color-bg);">Tidak yakin item mana? Tanya admin kami.</h3>
+      <a class="pi-lux" href="https://wa.me/628213106432" target="_blank" rel="noopener" style="display: inline-flex; align-items: center; gap: clamp(24px, 3vw, 48px); padding: 20px 24px; text-decoration: none; background: var(--color-bg); color: var(--color-text); border: 2px solid var(--color-bg); box-shadow: var(--shadow-md);">
+        <span style="font-family: var(--font-heading); font-weight: var(--font-heading-weight); font-size: 17px; letter-spacing: 0.01em; white-space: nowrap;">Chat WhatsApp</span>
+        <span class="pi-cta-arrow" style="font-family: var(--font-heading); font-size: 20px; line-height: 1;">&#8594;</span>
+      </a>
+    </div>
+  </section>
+
+  <div class="pi-wrap">
+    <footer style="padding: clamp(56px, 6vw, 80px) 0 32px; border-top: 1px solid color-mix(in srgb, var(--color-bg) 16%, transparent); font-size: 14px; line-height: 1.7; color: var(--color-neutral-300);">
+      <div class="pi-foot" style="display: grid; grid-template-columns: minmax(0, 1.3fr) minmax(0, 1fr) minmax(0, 1fr) minmax(0, 0.7fr); gap: 40px clamp(24px, 4vw, 64px);">
+        <div>
+          <img src="assets/logo-wordmark-light.png" alt="Profil Indah" style="display: block; height: 24px; width: auto; margin: 0 0 20px;">
+          <p style="margin: 0 0 14px;">Jl. Buluh Indah No. 54C, Pemecutan Kaja,<br>Kec. Denpasar Utara, Kota Denpasar,<br>Bali 80118</p>
+          <a href="https://maps.google.com/?q=Toko+Profil+Indah+Jl.+Buluh+Indah+No.54C+Denpasar" target="_blank" rel="noopener" style="font-size: 12px; letter-spacing: 0.1em; text-transform: uppercase; text-decoration: none; color: var(--color-bg); border-bottom: 1px solid var(--color-accent); padding-bottom: 2px;">Petunjuk arah &#8594;</a>
+        </div>
+        <div>
+          <span style="display: block; font-size: 12px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--color-neutral-400); margin: 0 0 16px;">Jam buka</span>
+          <div style="display: grid; grid-template-columns: auto 1fr; gap: 2px 20px; max-width: 290px; white-space: nowrap;">
+            <span>Senin</span><span style="text-align: right;">07.30–17.00 WITA</span>
+            <span>Selasa</span><span style="text-align: right;">07.30–17.00 WITA</span>
+            <span>Rabu</span><span style="text-align: right;">07.30–17.00 WITA</span>
+            <span>Kamis</span><span style="text-align: right;">07.30–17.00 WITA</span>
+            <span>Jumat</span><span style="text-align: right;">07.30–17.00 WITA</span>
+            <span>Sabtu</span><span style="text-align: right;">07.30–17.00 WITA</span>
+            <span>Minggu</span><span style="text-align: right; color: var(--color-accent);">Tutup</span>
+          </div>
+        </div>
+        <div>
+          <span style="display: block; font-size: 12px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--color-neutral-400); margin: 0 0 16px;">Hubungi</span>
+          <p style="margin: 0 0 6px;"><a href="tel:+62361417109" style="text-decoration: none; color: var(--color-neutral-300);">Telepon (0361) 417109</a></p>
+          <p style="margin: 0;"><a href="https://wa.me/628213106432" target="_blank" rel="noopener" style="text-decoration: none; color: var(--color-neutral-300);">WhatsApp +62 821-3106-432</a></p>
+        </div>
+        <div>
+          <span style="display: block; font-size: 12px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--color-neutral-400); margin: 0 0 16px;">Halaman</span>
+          <div style="display: flex; flex-direction: column; gap: 6px;">
+            <a href="index.html" style="text-decoration: none; color: var(--color-neutral-300);">Beranda</a>
+            <a href="produk.html" style="text-decoration: none; color: var(--color-neutral-300);">Produk</a>
+          </div>
+        </div>
+      </div>
+      <p style="margin: 48px 0 0; font-size: 13px; color: var(--color-neutral-400);">Toko Profil Indah — Denpasar, Bali. Sejak 2003.</p>
+    </footer>
+  </div>
+
+</div>
+</body>
+</html>
