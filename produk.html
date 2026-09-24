@@ -58,6 +58,10 @@
   body { background: color-mix(in oklch, var(--color-neutral-900) 72%, black); }
   @media (max-width: 900px) { .pi-pgrid { grid-template-columns: repeat(2, minmax(0, 1fr)) !important; } }
   @media (max-width: 560px) { .pi-pgrid { grid-template-columns: 1fr !important; } }
+  /* Diambil dari CSS Home: strip & footer responsif (lihat build.py) */
+  @media (max-width: 860px) { .pi-strip { grid-template-columns: repeat(2, minmax(0, 1fr)) !important; } .pi-strip > div { border-left: none !important; padding-left: 0 !important; } }
+  @media (max-width: 900px) { .pi-foot { grid-template-columns: repeat(2, minmax(0, 1fr)) !important; } }
+  @media (max-width: 520px) { .pi-foot { grid-template-columns: 1fr !important; } }
 </style>
 <link rel="stylesheet" href="css/site.css">
 <script src="js/site.js" defer></script>
