@@ -46,6 +46,12 @@
   .pi-spy { text-decoration: underline !important; text-decoration-color: transparent !important; text-underline-offset: 7px; text-decoration-thickness: 2px; transition: color 0.25s, text-decoration-color 0.25s; }
   .pi-spy.is-active { color: var(--color-bg) !important; font-weight: 600; text-decoration-color: var(--color-accent) !important; }
   @media (max-width: 860px) { .pi-strip { grid-template-columns: repeat(2, minmax(0, 1fr)) !important; } .pi-strip > div { border-left: none !important; padding-left: 0 !important; } }
+  .pi-scamnum, .pi-scamreport { transition: background 0.25s; }
+  .pi-scamnum:hover, .pi-scamreport:hover { background: color-mix(in srgb, var(--color-bg) 6%, transparent); }
+  .pi-scamnum:hover .pi-cta-arrow, .pi-scamreport:hover .pi-cta-arrow { transform: translateX(6px); }
+  .pi-scamreport:hover { color: var(--color-bg) !important; }
+  @media (max-width: 900px) { .pi-scam { grid-template-columns: 1fr !important; } .pi-scam > div:first-child { border-right: none !important; border-bottom: 1px solid color-mix(in srgb, var(--color-bg) 18%, transparent); } }
+  @media (max-width: 560px) { .pi-scamnums { grid-template-columns: 1fr !important; } .pi-scamnums > a { border-right: none !important; border-bottom: 1px solid color-mix(in srgb, var(--color-bg) 18%, transparent) !important; } }
   .pi-lux, .pi-ink { transition: background 0.3s, color 0.3s, border-color 0.3s, box-shadow 0.3s, transform 0.3s; }
   .pi-lux:hover, .pi-ink:hover { background: var(--color-accent); border-color: var(--color-accent); color: var(--color-bg); box-shadow: var(--shadow-lg); transform: translateY(-2px); }
   .pi-lux:active, .pi-ink:active { box-shadow: var(--shadow-sm); transform: translateY(0); }
@@ -434,6 +440,37 @@
           <p style="margin: 0 0 6px; color: var(--color-bg); font-weight: 600;">Atau datang langsung ke toko</p>
           <p style="margin: 0 0 22px;">Jl. Buluh Indah No. 54C, Pemecutan Kaja, Denpasar Utara</p>
           <a class="pi-maps" href="https://maps.google.com/?q=Toko+Profil+Indah+Jl.+Buluh+Indah+No.54C+Denpasar" target="_blank" rel="noopener" style="display: inline-flex; align-items: center; gap: 10px; font-size: 13px; letter-spacing: 0.08em; text-transform: uppercase; text-decoration: none; color: var(--color-bg); border-bottom: 2px solid var(--color-accent); padding-bottom: 4px;">Buka di Google Maps <span aria-hidden="true">&#8594;</span></a>
+        </div>
+      </div>
+      <div class="pi-scam" style="margin-top: clamp(56px, 6vw, 80px); border: 1px solid color-mix(in srgb, var(--color-bg) 18%, transparent); display: grid; grid-template-columns: minmax(0, 5fr) minmax(0, 7fr);">
+        <div style="padding: clamp(24px, 3vw, 40px); border-right: 1px solid color-mix(in srgb, var(--color-bg) 18%, transparent);">
+          <span style="display: inline-block; font-size: 12px; letter-spacing: 0.14em; text-transform: uppercase; font-weight: 600; color: var(--color-bg); background: var(--color-accent); padding: 6px 10px; margin: 0 0 20px;">Waspada penipuan</span>
+          <p style="font-family: var(--font-heading); font-size: clamp(20px, 2vw, 26px); line-height: 1.25; font-weight: 500; letter-spacing: -0.01em; color: var(--color-bg); margin: 0 0 12px;">Hanya empat nomor ini yang resmi milik Profil Indah.</p>
+          <p style="font-size: 15px; line-height: 1.7; color: var(--color-neutral-300); margin: 0;">Pesan atas nama Profil Indah dari nomor lain bukan dari kami. Jangan kirim uang atau data pribadi, dan laporkan nomor tersebut ke salah satu nomor resmi.</p>
+        </div>
+        <div style="display: flex; flex-direction: column;">
+          <div class="pi-scamnums" style="display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); flex: 1 1 auto;">
+            <a class="pi-scamnum" href="https://wa.me/6285100400588" target="_blank" rel="noopener" style="display: flex; align-items: center; justify-content: space-between; gap: 16px; padding: 22px clamp(20px, 2.4vw, 32px); text-decoration: none; color: var(--color-bg); border-right: 1px solid color-mix(in srgb, var(--color-bg) 18%, transparent); border-bottom: 1px solid color-mix(in srgb, var(--color-bg) 18%, transparent);">
+              <span style="display: flex; flex-direction: column; gap: 4px;"><span style="font-size: 11px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--color-neutral-400);">WhatsApp resmi 01</span><span style="font-family: var(--font-heading); font-size: clamp(17px, 1.6vw, 20px); font-weight: 500; letter-spacing: 0.01em; white-space: nowrap;">+62 851-0040-0588</span></span>
+              <span class="pi-cta-arrow" aria-hidden="true" style="font-size: 18px; line-height: 1;">&#8594;</span>
+            </a>
+            <a class="pi-scamnum" href="https://wa.me/6281338765972" target="_blank" rel="noopener" style="display: flex; align-items: center; justify-content: space-between; gap: 16px; padding: 22px clamp(20px, 2.4vw, 32px); text-decoration: none; color: var(--color-bg); border-bottom: 1px solid color-mix(in srgb, var(--color-bg) 18%, transparent);">
+              <span style="display: flex; flex-direction: column; gap: 4px;"><span style="font-size: 11px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--color-neutral-400);">WhatsApp resmi 02</span><span style="font-family: var(--font-heading); font-size: clamp(17px, 1.6vw, 20px); font-weight: 500; letter-spacing: 0.01em; white-space: nowrap;">+62 813-3876-5972</span></span>
+              <span class="pi-cta-arrow" aria-hidden="true" style="font-size: 18px; line-height: 1;">&#8594;</span>
+            </a>
+            <a class="pi-scamnum" href="https://wa.me/628213106432" target="_blank" rel="noopener" style="display: flex; align-items: center; justify-content: space-between; gap: 16px; padding: 22px clamp(20px, 2.4vw, 32px); text-decoration: none; color: var(--color-bg); border-right: 1px solid color-mix(in srgb, var(--color-bg) 18%, transparent);">
+              <span style="display: flex; flex-direction: column; gap: 4px;"><span style="font-size: 11px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--color-neutral-400);">WhatsApp resmi 03</span><span style="font-family: var(--font-heading); font-size: clamp(17px, 1.6vw, 20px); font-weight: 500; letter-spacing: 0.01em; white-space: nowrap;">+62 821-3106-432</span></span>
+              <span class="pi-cta-arrow" aria-hidden="true" style="font-size: 18px; line-height: 1;">&#8594;</span>
+            </a>
+            <a class="pi-scamnum" href="https://wa.me/6281237126899" target="_blank" rel="noopener" style="display: flex; align-items: center; justify-content: space-between; gap: 16px; padding: 22px clamp(20px, 2.4vw, 32px); text-decoration: none; color: var(--color-bg);">
+              <span style="display: flex; flex-direction: column; gap: 4px;"><span style="font-size: 11px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--color-neutral-400);">WhatsApp resmi 04</span><span style="font-family: var(--font-heading); font-size: clamp(17px, 1.6vw, 20px); font-weight: 500; letter-spacing: 0.01em; white-space: nowrap;">+62 812-3712-6899</span></span>
+              <span class="pi-cta-arrow" aria-hidden="true" style="font-size: 18px; line-height: 1;">&#8594;</span>
+            </a>
+          </div>
+          <a class="pi-scamreport" href="https://wa.me/628213106432?text=Halo%20Profil%20Indah%2C%20saya%20ingin%20melaporkan%20nomor%20mencurigakan%20yang%20mengatasnamakan%20toko%3A%20" target="_blank" rel="noopener" style="display: flex; align-items: center; justify-content: space-between; gap: 16px; padding: 18px clamp(20px, 2.4vw, 32px); border-top: 1px solid color-mix(in srgb, var(--color-bg) 18%, transparent); text-decoration: none; font-size: 13px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--color-bg);">
+            <span>Laporkan nomor mencurigakan</span>
+            <span class="pi-cta-arrow" aria-hidden="true" style="font-size: 18px; line-height: 1;">&#8594;</span>
+          </a>
         </div>
       </div>
     </div>
