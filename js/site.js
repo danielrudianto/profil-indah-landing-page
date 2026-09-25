@@ -30,13 +30,11 @@
       return;
     }
     if (!href || /^(https?:|tel:|mailto:)/.test(href)) return;
-    // Di server, beranda dibuka sebagai "/" (nama berkas kosong). Tanpa "|| index.html",
-    // klik logo di beranda dianggap pindah ke halaman lain dan diberi efek fade keluar,
-    // padahal di desain klik ke halaman yang sama tidak di-fade.
-    var here = location.pathname.split('/').pop() || 'index.html';
-    // Link ke halaman yang sama (mis. kategori.html#engsel dari kategori.html) dibiarkan
-    // jalan biasa supaya hanya hash yang berubah dan kategori.js menangkap hashchange.
-    if (href.split('#')[0] === here) return;
+    // Klik ke halaman yang sedang dibuka tidak diberi fade, sama seperti di desain.
+    // Alamat dibandingkan dalam bentuk bersih: "/", "index", dan "index.html" sama-sama
+    // beranda; "produk" sama dengan "produk.html".
+    var norm = function (p) { p = p.split('/').pop().replace(/\.html$/, ''); return p === 'index' ? '' : p; };
+    if (norm(href.split('#')[0]) === norm(location.pathname)) return;
     e.preventDefault();
     document.body.classList.add('pi-leaving');
     setTimeout(function () { location.href = a.href; }, 380);
