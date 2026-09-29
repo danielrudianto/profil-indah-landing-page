@@ -131,6 +131,46 @@
     });
   }
 
+  /* ---- Video "Suasana toko" ----
+     preload="none" di HTML: berkas 2,5 MB baru diunduh saat section terlihat.
+     Diputar hanya selama terlihat (hemat kuota dan baterai di HP). Kalau pengunjung
+     menjeda sendiri, jangan diputar ulang otomatis. Dengan prefers-reduced-motion
+     tidak ada autoplay: poster tampil diam dan video baru jalan kalau diketuk. */
+  function setupVideo() {
+    var v = document.querySelector('video.pi-video');
+    if (!v) return;
+    var userPaused = false, autoPausing = false;
+    // Tanpa kontrol bawaan: ketuk/klik atau Enter/Spasi pada video untuk memutar/menjeda.
+    // Ini satu-satunya cara menjeda, jadi harus selalu terpasang, juga di mode gerakan dikurangi.
+    var toggle = function () {
+      if (v.paused) { userPaused = false; var pr = v.play(); if (pr && pr.catch) pr.catch(function () {}); }
+      else { v.pause(); }
+    };
+    v.addEventListener('click', toggle);
+    v.addEventListener('keydown', function (e) {
+      if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); toggle(); }
+    });
+    var reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    if (reduce || !('IntersectionObserver' in window)) return;
+    // Event 'pause' datang asinkron, setelah v.pause() selesai. Penanda jeda otomatis
+    // dibaca dan di-reset di sini; kalau di-reset tepat setelah v.pause(), jeda
+    // otomatis ikut tercatat sebagai jeda pengunjung dan video tidak jalan lagi.
+    v.addEventListener('pause', function () {
+      if (autoPausing) { autoPausing = false; return; }
+      if (!v.ended) userPaused = true;
+    });
+    v.addEventListener('play', function () { userPaused = false; });
+    new IntersectionObserver(function (entries) {
+      entries.forEach(function (en) {
+        if (en.isIntersecting) {
+          if (!userPaused) { var pr = v.play(); if (pr && pr.catch) pr.catch(function () {}); }
+        } else if (!v.paused) {
+          autoPausing = true; v.pause();
+        }
+      });
+    }, { threshold: 0.35 }).observe(v);
+  }
+
   function init() {
     var buttons = Array.prototype.slice.call(document.querySelectorAll('.pi-brandrow > .pi-brand'));
     var current = 0;
@@ -153,6 +193,7 @@
       if (id && document.getElementById(id) && window.__piScrollTo) window.__piScrollTo(id);
     }, 500);
     setTimeout(setupAos, 60);
+    setupVideo();
   }
 
   if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', init);
