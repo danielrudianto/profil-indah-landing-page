@@ -39,6 +39,12 @@
   var COLLAPSED_BASE = SHARED + ' flex-grow: 0; align-items: flex-end; justify-content: center; padding: 24px 0;';
   var VERT = 'position: relative; writing-mode: vertical-rl; transform: rotate(180deg); font-family: var(--font-heading); font-weight: var(--font-heading-weight); font-size: 14px; letter-spacing: 0.1em; text-transform: uppercase; white-space: nowrap;';
 
+  // Foto merek (Aica saja 400 KB) baru dipasang saat baris merek mendekati layar; sebelum itu
+  // url diganti 'none'. Tata letak tidak berubah karena 'photo' tetap dipakai untuk memilih gaya,
+  // hanya gambarnya yang ditunda. Lihat setupBrandImages().
+  var brandImagesOn = false;
+  function bg(photo) { return brandImagesOn ? 'url(' + photo + ')' : 'none'; }
+
   function brandStyles(photo, logo, open, openWidth) {
     var onPhoto = open && !!photo;
     // Foto tidak lagi menjadi background kartu. Dengan background-size: cover, browser
@@ -46,7 +52,7 @@
     // seperti zoom dan membuat animasi patah-patah. Foto dipindah ke .pi-brand-img (lihat imgStyle).
     // Mode tumpuk (openWidth null, layar sempit): kartu tidak dianimasikan melebar, jadi
     // dipakai cara desain apa adanya (foto sebagai background kartu) supaya tampilannya identik.
-    var photoOnCard = ' background-image: url(' + photo + '); background-size: cover; background-position: center; color: var(--color-bg);';
+    var photoOnCard = ' background-image: ' + bg(photo) + '; background-size: cover; background-position: center; color: var(--color-bg);';
     var photoOnLayer = ' background: var(--color-neutral-800); color: var(--color-bg);';
     var photoBg = openWidth ? photoOnLayer : photoOnCard;
     var collapsed = COLLAPSED_BASE + (photo ? photoBg : ' background: var(--color-bg); color: var(--color-text);');
@@ -66,7 +72,7 @@
     // sehingga tidak digambar ulang tiap frame. Di mode tumpuk layer ini tidak dipakai.
     var img = (!photo || !openWidth) ? 'display: none;'
       : 'position: absolute; top: 0; bottom: 0; left: 50%; width: ' + openWidth + 'px; transform: translate3d(-50%, 0, 0); will-change: transform;'
-        + ' background-image: url(' + photo + '); background-size: cover; background-position: center; background-repeat: no-repeat; pointer-events: none;';
+        + ' background-image: ' + bg(photo) + '; background-size: cover; background-position: center; background-repeat: no-repeat; pointer-events: none;';
     return {
       img: img,
       card: open ? expanded : collapsed,
@@ -86,7 +92,7 @@
         : 'position: absolute; width: 0; opacity: 0; overflow: hidden; pointer-events: none;',
       logo: onPhoto
         ? 'display: none;'
-        : 'height: 28px; width: 150px; display: block; margin: 0 0 28px; background-image: url(' + logo + '); background-repeat: no-repeat; background-position: left center; background-size: contain;' + reveal(0.26),
+        : 'height: 28px; width: 150px; display: block; margin: 0 0 28px; background-image: ' + bg(logo) + '; background-repeat: no-repeat; background-position: left center; background-size: contain;' + reveal(0.26),
       title: 'font-size: clamp(22px, 2.4vw, 30px); line-height: 1.12; letter-spacing: -0.02em; margin: 0 0 14px; color: ' + ink + ';' + reveal(0.32),
       desc: 'font-size: 15px; line-height: 1.7; margin: 0 0 18px; max-width: 44ch; color: ' + muted + ';' + reveal(0.4),
       cat: 'display: block; font-size: 12px; letter-spacing: 0.06em; text-transform: uppercase; color: ' + (onPhoto ? 'var(--color-bg)' : 'var(--color-accent-700)') + ';' + reveal(0.48),
@@ -136,6 +142,20 @@
      Diputar hanya selama terlihat (hemat kuota dan baterai di HP). Kalau pengunjung
      menjeda sendiri, jangan diputar ulang otomatis. Dengan prefers-reduced-motion
      tidak ada autoplay: poster tampil diam dan video baru jalan kalau diketuk. */
+  /* Poster video dan latar ambient (gambar yang sama) baru dipasang saat section mendekati layar.
+     Atribut poster biasa langsung diunduh browser meski videonya preload="none". */
+  function setupNearMedia() {
+    var sec = document.getElementById('toko');
+    var v = sec && sec.querySelector('video.pi-video');
+    if (!sec || !v) return;
+    var on = function () { if (v.dataset.poster && !v.poster) v.poster = v.dataset.poster; sec.classList.add('is-near'); };
+    if (!('IntersectionObserver' in window)) { on(); return; }
+    var io = new IntersectionObserver(function (es) {
+      if (es.some(function (e) { return e.isIntersecting; })) { on(); io.disconnect(); }
+    }, { rootMargin: '600px 0px' });
+    io.observe(sec);
+  }
+
   function setupVideo() {
     var v = document.querySelector('video.pi-video');
     if (!v) return;
@@ -175,6 +195,14 @@
     var buttons = Array.prototype.slice.call(document.querySelectorAll('.pi-brandrow > .pi-brand'));
     var current = 0;
     selectBrand(buttons, current);
+    var row = buttons.length && buttons[0].parentNode;
+    var turnOn = function () { if (brandImagesOn) return; brandImagesOn = true; selectBrand(buttons, current); };
+    if (row && 'IntersectionObserver' in window) {
+      var io = new IntersectionObserver(function (es) {
+        if (es.some(function (e) { return e.isIntersecting; })) { turnOn(); io.disconnect(); }
+      }, { rootMargin: '600px 0px' });
+      io.observe(row);
+    } else { turnOn(); }
     buttons.forEach(function (btn, n) {
       btn.addEventListener('click', function () { current = n; selectBrand(buttons, n); });
     });
@@ -193,6 +221,7 @@
       if (id && document.getElementById(id) && window.__piScrollTo) window.__piScrollTo(id);
     }, 500);
     setTimeout(setupAos, 60);
+    setupNearMedia();
     setupVideo();
   }
 
